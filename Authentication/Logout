@@ -1,0 +1,15 @@
+This API is used to log a user out of the system. When the /logout endpoint is called, the user ID is passed as a request parameter to the controller.
+
+The controller calls the service method logout(userid) and waits for the result. Based on the returned status, it sends either a success message (“Logged out Successfully”) or a failure message (“Logout Failed”) back to the client.
+
+Inside the service layer, the system first fetches the most recent login activity record of the user where the status is "LOGGEDIN".
+
+If a login record is found, the system sets the logout time to the current date and time. This updates the login history by marking when the user logged out.
+
+The updated user activity record is then saved back into the database.
+
+The system removes the user’s active session from the session cache. This ensures the user no longer has an active session and cannot continue using the system without logging in again.
+
+If any exception occurs during this process (such as a database error), the system logs the error message and saves the error details into an error log table for future troubleshooting.
+
+Finally, the method returns true, indicating that the logout process has been completed from the system’s perspective.
