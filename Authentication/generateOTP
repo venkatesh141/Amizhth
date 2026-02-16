@@ -1,0 +1,13 @@
+This API is used to generate an OTP when a user tries to log in. When the user calls the `/generateotp` endpoint, 
+they send either a PS Code or a mobile number. The controller first collects the user’s IP address and adds it to the request.
+Then it passes the request to the service layer, where the actual validation and OTP logic happens.
+
+Inside the service, the system first checks whether the user has provided a PS Code or a mobile number.
+If a PS Code is given, it attempts to decrypt it to ensure the data is secure and not tampered with. 
+If decryption fails, it treats it as a security breach. If decryption succeeds, the system checks the database to see whether an active user exists
+with that PS Code. If a mobile number is provided instead, the same process happens: it is decrypted for security validation and then checked in 
+the database to confirm that an active user exists.
+
+If no valid user is found, the system throws an appropriate error such as invalid credentials or 
+invalid phone number. If a valid and active user is found, the system then calls the OTP utility method to send an OTP to the user’s registered mobile number.
+Finally, based on whether the OTP was successfully sent or not, the controller returns either a success response (“OTP Sent”) or a failure response (“OTP Not Sent”) to the client.
