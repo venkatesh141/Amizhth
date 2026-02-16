@@ -1,0 +1,18 @@
+This API is used to verify the OTP that the user enters after receiving it. When the user calls the `/verifyotp` 
+endpoint, they send either a PS Code or a mobile number along with the OTP. The controller first captures the user’s IP
+address and adds it to the request, then passes everything to the service layer where the actual verification happens.
+
+Inside the service, the system first validates the user identity. Just like in OTP generation, it checks whether a PS Code or
+mobile number is provided. It tries to decrypt the value to ensure the request is secure and not tampered with. If decryption
+fails, it throws a security-related error. Then it checks the database to confirm that an active user exists. If no user is found,
+
+it throws an appropriate error such as invalid PS Code or invalid phone number.
+
+After confirming the user, the system then checks whether an OTP was provided. The OTP is also decrypted for security validation.
+  If the OTP is missing or decryption fails, it throws an error indicating the OTP is invalid or there is a security breach.
+
+Next, the system checks how many failed login attempts the user already has. If the failed attempt count is 10 or more, 
+  it disables the user account, saves the change in the database, and throws a locked account error. This is a security protection mechanism to prevent brute-force attacks.
+
+If the account is not locked, the system calls the OTP utility to verify whether the decrypted OTP matches the one that was generated earlier.
+  If the OTP is correct, it sends a login success SMS to the user. Finally, the method returns true or false depending on whether the OTP verification was successful. Based on that result, the controller sends either “OTP Verified” or “OTP Not Verified” back to the client.
