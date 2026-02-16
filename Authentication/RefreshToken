@@ -1,0 +1,31 @@
+Refresh Token – Simple Flow
+
+👉 Step 1: User sends refresh token to /refreshtoken API.
+
+👉 Step 2: System tries to extract username from the refresh token.
+
+If token format is wrong → return INVALID_REFRESH_TOKEN
+
+If token is expired → return TOKEN_EXPIRED
+
+👉 Step 3: Load user details using the extracted username.
+
+👉 Step 4: Validate the refresh token with user details.
+
+If validation fails → return INVALID_REFRESH_TOKEN
+
+👉 Step 5: If valid, update user session in session cache (new session ID).
+
+👉 Step 6: Generate a new access token.
+
+👉 Final Result:
+
+If invalid → return 401 Unauthorized
+
+If expired → return 401 Unauthorized
+
+If valid → return new access token to the user
+
+🔄 In One Line
+
+Validate refresh token → Load user → Verify token → Create new access token → Return it.
