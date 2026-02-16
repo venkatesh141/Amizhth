@@ -1,0 +1,36 @@
+Here is your **login explanation converted into clear points (from paragraph style):**
+
+---
+
+1. This API is used to log the user into the system after verifying their identity using either OTP or password. When the `/login` endpoint is called, the system first captures the user’s IP address and forwards the request to the service layer.
+
+2. The system then checks whether the user has provided a PS Code or a mobile number. It decrypts the provided value to ensure the request
+is secure and not tampered with. After decryption, it checks the database to confirm that an active user exists. If no user is found, 
+it throws an appropriate error such as invalid PS Code or invalid phone number.
+
+3. Before proceeding further, the system checks whether the user already has an active session in the session cache. 
+If the user is already logged in somewhere else, it throws a “User Already Logged In” error to prevent multiple active sessions.
+
+4. Once the user is validated and not already logged in, the system fetches the user’s role information from the database. 
+This role is important for authentication and authorization purposes.
+
+5. The system then performs authentication in one of two ways. If an OTP is provided, it decrypts the OTP, verifies whether it is valid,
+and marks it as used. If the OTP is incorrect, it throws an OTP verification error. If it is correct, the user is authenticated successfully.
+
+6. If instead a password is provided, the system decrypts the password and verifies it. If the password is incorrect, it returns a failure response indicating invalid credentials.
+
+7. After successful authentication (either by OTP or password), the system generates an access token and a refresh token. These tokens are
+returned to the client and will be used for future authenticated requests.
+
+8. The system then prepares additional user details to include in the response, such as role ID, name, user ID, RDO ID, and district information.
+If the user belongs to a police station role, it fetches police district details as well.
+
+9. If the user is mapped to multiple RDOs, the system sets a flag in the response to indicate that the user has multiple RDO mappings.
+
+10. The user’s last login time is updated, failed login attempts are reset to zero, and the updated details are saved in the database.
+
+11. The system logs the login activity into a user activity table and creates a session entry in the session cache. If any error occurs during logging,
+it records the error in an error log table.
+
+12. Finally, a login success SMS is sent to the user including the current date and time. The system then returns a successful authentication response 
+containing tokens and user details.
