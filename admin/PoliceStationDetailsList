@@ -1,0 +1,34 @@
+Super Venky 👍
+I’ll explain this in **very simple flow**, only in **10 lines**.
+
+---
+
+### ✅ What This Function Is Doing (Simple 10-Line Explanation)
+
+1. This API is used to **get police station list**.
+2. It receives `districtId` or `rdoId` from request body.
+3. If `districtId` is given → it fetches all active police stations from that district.
+4. Else if `rdoId` is given → it fetches police stations mapped to that RDO.
+5. To do that, it first gets all active police station users.
+6. Then it gets mapping records from `police_rdo` table using `rdoId`.
+7. It filters only those users whose IDs exist in mapping table.
+8. If neither district nor rdo is given → it fetches all active police stations.
+9. Then it converts `UsersModel` into `PoliceStationDTO` (id + name only).
+10. Finally, it sets the list in DTO and returns response with status “Success”.
+
+---
+
+### 🔥 In One Line (Big Picture)
+
+👉 This function returns a filtered list of active police stations based on district or RDO.
+
+---
+
+If you want, I can also explain:
+
+* 🔹 Why filtering is done manually for RDO case
+* 🔹 How this can be optimized using JOIN query
+* 🔹 Flow diagram explanation
+* 🔹 How to improve this code like a senior developer
+
+Tell me next 👊
