@@ -1,0 +1,10 @@
+1. This function returns a list of districts from the database.
+2. It gets the logged-in user using JWT.
+3. It applies pagination (page number and list size).
+4. It sorts districts by name in ascending order.
+5. It filters only active districts.
+6. It supports search by district name.
+7. It can filter only actual districts (non-police districts).
+8. It can filter only police districts.
+9. It fetches data using a dynamic Specification query.
+10. If no data is found and user is DC, it returns that user’s own district.
