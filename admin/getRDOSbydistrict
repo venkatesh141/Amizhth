@@ -1,0 +1,12 @@
+Here is the explanation in **10 simple lines**:
+
+1. This function returns RDOs based on given district IDs.
+2. It receives a list of district IDs in the request body.
+3. It searches the RDO table for records matching those district IDs.
+4. It filters only active RDO records.
+5. It converts each RDO entity into an RdoDTO object.
+6. Each RdoDTO contains id, name, and districtId.
+7. It collects all RDOs into a list.
+8. It calculates the total count using the list size.
+9. It builds an RdoPageDTO with the list and count.
+10. Finally, it returns the RDO list to the frontend.
