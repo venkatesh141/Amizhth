@@ -1,0 +1,147 @@
+Good Venky 👍
+I will explain this in **very simple English**, step-by-step flow in paragraphs.
+
+---
+
+This API is:
+
+```
+GET /user/get?id=123
+```
+
+It is used to **get details of a single user** using user ID.
+
+---
+
+Now let’s understand the controller first.
+
+The controller method:
+
+```
+@GetMapping("/user/get")
+```
+
+It takes `id` as a request parameter.
+
+Example:
+
+```
+/user/get?id=5
+```
+
+Then it calls:
+
+```
+adminService.userGet(id)
+```
+
+And returns the result with HTTP 200 (OK).
+
+That’s all the controller does.
+
+---
+
+Now let’s understand the service method.
+
+Inside `userGet(Long id)`:
+
+First, it creates an empty `UsersDTO` object.
+
+Then it tries to fetch the user from database:
+
+```
+usersRepository.findByIdAndActive(id, true)
+```
+
+This means:
+👉 It will only fetch the user if:
+
+* ID matches
+* User is active = true
+
+If user is inactive or does not exist,
+it will return null.
+
+---
+
+Now the condition:
+
+If `usersModel` is not null,
+that means the user exists.
+
+So it converts the database model into DTO using:
+
+```
+constructUsersResponse(usersModel)
+```
+
+This method basically:
+👉 Converts UsersModel → UsersDTO
+👉 Removes unnecessary fields
+👉 Prepares clean response for frontend
+
+---
+
+If `usersModel` is null,
+that means:
+
+* User does not exist
+  OR
+* User is inactive
+
+So it throws:
+
+```
+CMARFException(ErrorEnum.INVALID_USER)
+```
+
+This prevents returning invalid or deleted users.
+
+---
+
+After successful conversion:
+
+It creates a `ResponseDTO`.
+
+It sets:
+
+```
+responseStatus = "Success"
+```
+
+Then attaches it to `usersDTO`.
+
+Finally, it returns `usersDTO`.
+
+---
+
+Now full flow in simple steps:
+
+1. Receive user ID
+2. Fetch user from database (only active users)
+3. If not found → throw INVALID_USER
+4. If found → convert to DTO
+5. Set response status as Success
+6. Return user details
+
+---
+
+In simple words:
+
+👉 This method fetches one user
+👉 It checks if the user is active
+👉 If not found, it throws error
+👉 If found, it returns user details
+👉 It is a safe and clean read operation
+
+---
+
+Very simple compared to your create and list methods 😄
+
+If you want, I can next explain:
+
+* How constructUsersResponse usually works internally
+* Or how to improve this API (like adding role-based security)
+* Or how to write unit test for this method
+
+Tell me what you want next 👍
