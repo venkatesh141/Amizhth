@@ -1,0 +1,165 @@
+Good Venky 👍
+I will explain this in **very simple English**, step-by-step flow in paragraphs.
+
+---
+
+This API is:
+
+```
+DELETE /user/deactivate?id=5
+```
+
+It is used to **deactivate a user**.
+
+Important:
+👉 It does NOT delete the user from the database.
+👉 It only changes `active = false`.
+
+This is called **soft delete**.
+
+---
+
+## Controller Flow
+
+The controller method is:
+
+```
+@DeleteMapping("/user/deactivate")
+```
+
+It takes the user ID as a request parameter.
+
+Example:
+
+```
+/user/deactivate?id=10
+```
+
+Then it calls:
+
+```
+adminService.userDeactivate(id)
+```
+
+This method returns a Boolean.
+
+---
+
+Now the controller checks:
+
+If result is `true`:
+
+* responseStatus = "Success"
+* responseMessage = "User Deactivated"
+* HTTP status = 200 OK
+
+If result is false:
+
+* responseStatus = "Failed"
+* responseMessage = "User Not Deactivated"
+* HTTP status = 500 Internal Server Error
+
+So controller just handles response formatting.
+
+---
+
+## Service Method Flow
+
+Now let’s see what happens inside `userDeactivate()`.
+
+First, it tries to fetch the user from database:
+
+```
+usersRepository.findByIdAndActive(userid, true)
+```
+
+This means:
+
+👉 It will only find the user if:
+
+* ID matches
+* active = true
+
+If user is already inactive or does not exist,
+it returns null.
+
+---
+
+### If User Exists
+
+If usersModel is not null:
+
+It performs soft delete:
+
+* `setActive(false)` → user becomes inactive
+* `setModifiedby()` → stores who deactivated the user
+* `setModifiedtime()` → stores current time (Asia/Kolkata)
+
+Then it saves the updated user.
+
+So basically:
+
+👉 User record stays in DB
+👉 But active becomes false
+👉 It will not appear in normal queries anymore
+
+---
+
+### If User Not Found
+
+If usersModel is null:
+
+It throws:
+
+```
+CMARFException(ErrorEnum.INVALID_USER)
+```
+
+This means:
+
+* User ID is wrong
+  OR
+* User already inactive
+
+---
+
+Finally, method returns:
+
+```
+true
+```
+
+---
+
+## Full Flow in Simple Steps
+
+1. Receive user ID
+2. Fetch active user from database
+3. If not found → throw INVALID_USER
+4. If found → set active = false
+5. Set modifiedBy and modifiedTime
+6. Save user
+7. Return true
+8. Controller sends success response
+
+---
+
+## In Simple Words
+
+👉 This API deactivates a user
+👉 It does not permanently delete
+👉 It records who deactivated
+👉 It records when deactivated
+👉 It prevents invalid user access
+
+---
+
+Very clean and simple method 👍
+
+If you want, next I can explain:
+
+* Difference between soft delete and hard delete
+* How to prevent Admin from deactivating themselves
+* Or how to add role-based security to this method
+
+Tell me what you want next 😊
