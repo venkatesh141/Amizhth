@@ -1,0 +1,12 @@
+Here is the simple explanation in **10 lines**:
+
+1. This function is used to create or update a district.
+2. It first gets the logged-in user from JWT.
+3. It checks if the district name is empty; if yes, it throws INVALID_DISTRICT.
+4. If district ID > 0, it means update existing district.
+5. During update, it checks if another district with the same name already exists.
+6. If duplicate exists, it throws DISTRICT_EXISTS error.
+7. If no duplicate, it updates district name and modified details.
+8. If district ID = 0, it means create new district.
+9. Before creating, it checks if district name already exists.
+10. If not exists, it saves the new district and returns true.
