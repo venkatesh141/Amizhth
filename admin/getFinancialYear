@@ -1,0 +1,12 @@
+Here is the explanation in **10 simple lines**:
+
+1. This function returns financial year values.
+2. It takes a boolean input called `currentYear`.
+3. It gets the current year using `Year.now()`.
+4. If `currentYear = true`, it returns only the current financial year.
+5. Current financial year format is: currentYear - nextYear (e.g., 2026-2027).
+6. If `currentYear = false`, it returns two years.
+7. First is the current financial year.
+8. Second is the previous financial year (e.g., 2025-2026).
+9. It stores these values in a list of strings.
+10. Finally, it returns the list to the frontend.
