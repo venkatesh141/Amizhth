@@ -1,0 +1,12 @@
+Here is the simple explanation in **10 lines**:
+
+1. This function returns a list of RDO users.
+2. It receives districtId as input.
+3. If districtId is provided (> 0), it fetches RDO users only from that district.
+4. If districtId is not provided, it fetches all RDO users.
+5. It filters only active users.
+6. Role ID `8` represents RDO role.
+7. It converts each UsersModel into RdoDTO (id and name only).
+8. It adds all RDOs into a list.
+9. It sets response status as "Success".
+10. Finally, it returns the RDO list to the frontend.
