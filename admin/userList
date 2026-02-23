@@ -1,0 +1,217 @@
+Good Venky 👍
+I will explain this **in very simple English**, step-by-step flow, in paragraphs.
+
+This API is used to **get the list of users** based on role, district, RDO, search, and pagination.
+
+---
+
+First, the controller method `/user/list` calls:
+
+```
+adminService.userList(usersListDTO)
+```
+
+And returns the result with HTTP 200 (OK).
+
+---
+
+Now let’s understand the service method flow.
+
+First, it gets the **currently logged-in user** from the database using the mobile number from JWT token.
+
+This is very important because:
+👉 The logged-in user’s role decides what users they are allowed to see.
+
+---
+
+Next, pagination is prepared.
+
+* If pageNumber > 0 → subtract 1 (because Spring starts from 0).
+* If listSize not given → default is 10.
+* Sorting is done by `id` in descending order (latest users first).
+
+So this part controls:
+👉 Page number
+👉 Page size
+👉 Sorting
+
+---
+
+Next comes a **security check**.
+
+If someone is trying to view ADMIN or TCO users:
+
+* Only ADMIN is allowed to do that.
+* If logged-in user is not ADMIN → throw INVALID_ROLE.
+
+So:
+👉 Normal users cannot see Admin or TCO users.
+
+---
+
+Now the system decides which roles can be viewed.
+
+It checks:
+
+If `usersListDTO.getRoleid() == 0`
+It means no specific role filter was given.
+
+So based on logged-in user’s role, it decides what roles they can see.
+
+---
+
+If logged-in user is:
+
+**ADMIN**
+→ Can see all roles (Admin, TCO, DC, RDO, DSP, Police Station, etc.)
+
+**TCO**
+→ Can see TCO Maker, Checker, DC, RDO, DSP, Police Station
+
+**DC**
+→ Can see DC Maker, DC Checker, RDO, DSP, Police Station
+Also district is fixed to DC’s district.
+
+**RDO**
+→ Can see RDO Verifier, Approver, Initiator
+Also RDO id and district are fixed.
+
+So basically:
+👉 Higher roles can see lower roles.
+
+---
+
+If specific roleId is provided in request:
+
+Then only that role is added to filter list.
+
+Also district and rdo are taken from logged-in user.
+
+---
+
+Now comes the important part:
+👉 Specification (Dynamic Query)
+
+This builds a dynamic database query.
+
+First condition:
+
+* active = true/false (based on request)
+* roleid must be in allowed role list
+
+---
+
+Now special filtering based on logged-in role.
+
+If logged-in role is DC or DC Maker:
+
+Two types of users must be shown:
+
+1. DC users from users table (same district)
+2. RDO users from users_district table
+
+So it:
+
+* Gets RDO user IDs from users_district table
+* Gets DC user IDs from users table
+* Combines both into a set
+* Adds condition to filter only those users
+
+This ensures:
+👉 DC sees only users inside their district.
+
+---
+
+If logged-in role is RDO:
+
+Then it filters:
+
+* rdoid must match logged-in RDO
+* districtid must match logged-in district
+
+So:
+👉 RDO sees only users under them.
+
+---
+
+Next comes Search filter.
+
+If searchString is given:
+
+It searches in:
+
+* name
+* mobile number
+* email
+
+Using LIKE condition.
+
+So:
+👉 Partial search is supported.
+
+---
+
+After building all conditions,
+it calls:
+
+```
+usersRepository.findAll(spec, paging)
+```
+
+So it fetches filtered users with pagination.
+
+---
+
+If data exists:
+
+It converts UsersModel → UsersDTO
+using `constructUsersResponse()` method.
+
+Then sets:
+
+* users list
+* total count
+* total pages
+
+---
+
+Finally:
+
+It sets response status = "Success"
+And returns usersListDTO.
+
+---
+
+Now let me summarize the full flow in simple steps:
+
+1. Get logged-in user
+2. Prepare pagination
+3. Check security (Admin only for Admin roles)
+4. Decide which roles can be viewed
+5. Build dynamic query using Specification
+6. Apply district/RDO restrictions
+7. Apply search filter
+8. Fetch paginated result
+9. Convert to DTO
+10. Return success response
+
+---
+
+In simple words:
+
+👉 This method lists users
+👉 Based on logged-in user’s role
+👉 Applies district and RDO restrictions
+👉 Supports pagination
+👉 Supports search
+👉 Prevents unauthorized access
+
+---
+
+If you want, I can next explain:
+
+* Why Specification is used instead of normal query
+* Or draw a simple role hierarchy flow for this system
+* Or explain how this improves security architecture
+
+Tell me which one you want 😊
