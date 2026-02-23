@@ -1,0 +1,175 @@
+Good Venky 👍
+I will explain this in **very simple English**, step-by-step flow in paragraphs.
+
+---
+
+This API is:
+
+```
+GET /fund/get
+```
+
+It is used to **get the current active fund configuration**.
+
+That means:
+👉 It returns the latest compensation amounts (Fatal, Disability, etc.)
+
+---
+
+## Controller Flow
+
+The controller method:
+
+```java
+@GetMapping("/fund/get")
+```
+
+It does not take any input.
+
+It simply calls:
+
+```java
+adminService.fundGet()
+```
+
+Then it returns the result with HTTP 200 (OK).
+
+So controller is very simple here.
+
+---
+
+## Service Method Flow
+
+Now let’s understand `fundGet()`.
+
+---
+
+### Step 1: Create Empty DTO
+
+First, it creates an empty `FundConfigDTO` object.
+
+This will hold the response data.
+
+---
+
+### Step 2: Get Latest Active Fund
+
+It fetches the latest active fund configuration:
+
+```java
+configFundRepository.getLatestFund(true)
+```
+
+This means:
+
+👉 Get the most recent fund configuration
+👉 Where active = true
+👉 Usually highest priority
+
+Remember from your save logic:
+You are maintaining versioning using priority and start/end dates.
+
+So this method returns:
+👉 The currently valid fund configuration.
+
+---
+
+### Step 3: If Fund Exists
+
+If fundConfigModel is not null:
+
+It sets:
+
+```java
+fundConfigDTO.setFundConfigJSONB(fundConfigModel.getJson());
+```
+
+This means:
+
+👉 It copies the fund amounts (JSONB data)
+👉 Into the response DTO
+
+So frontend receives:
+
+* Fatal amount
+* One eye / one limb amount
+* Permanent disability amount
+* Other small injuries amount
+
+---
+
+### Step 4: Set Response Status
+
+Then it creates a ResponseDTO.
+
+It sets:
+
+```
+responseStatus = "Success"
+```
+
+Then attaches it to fundConfigDTO.
+
+---
+
+### Step 5: Return DTO
+
+Finally, it returns fundConfigDTO to controller,
+which sends HTTP 200 response.
+
+---
+
+## What If No Fund Exists?
+
+If `fundConfigModel` is null:
+
+It simply returns empty DTO with Success response.
+
+(No exception is thrown.)
+
+---
+
+## Full Flow in Simple Steps
+
+1. Create empty FundConfigDTO
+2. Fetch latest active fund configuration
+3. If found → copy JSON data to DTO
+4. Set response status = Success
+5. Return DTO
+
+---
+
+## In Simple Words
+
+👉 This API fetches current fund compensation amounts
+👉 It returns the latest active configuration
+👉 It does not modify anything
+👉 It is a simple read operation
+
+---
+
+## Big Picture (Fund Module Flow)
+
+Now your Fund system has:
+
+* fundSave() → Creates new fund version
+* fundGet() → Gets current active fund
+
+So your system supports:
+
+✔ Versioning
+✔ Historical data
+✔ Only one active config at a time
+✔ Safe update
+
+Very clean design 👌
+
+---
+
+If you want next, I can explain:
+
+* 🔥 How getLatestFund(true) should be implemented internally
+* 🔥 How to filter fund by date instead of active flag
+* 🔥 Or full CMARF Admin module big picture (User + Fund together)
+
+Tell me which one you want 😊
