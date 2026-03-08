@@ -1,0 +1,30 @@
+Here is the explanation in **very simple English (10 points)**:
+
+1. **The API receives request data** like page number, list size, and claim status from the frontend.
+
+2. **The system finds the logged-in user** (usually a DSP officer).
+
+3. **It finds the police districts** that belong to this DSP user.
+
+4. **If no police districts are found**, the system returns an empty list.
+
+5. **The system finds all police stations** that belong to those police districts.
+
+6. **For each police station**, the system searches for claims related to that police station.
+
+7. **For every claim found**, the system collects important details like:
+
+   * Claim number
+   * Claim status
+   * Claim amount
+   * Victim name
+   * Injury type
+
+8. **The system groups these claims under their police station**, along with district and police district information.
+
+9. **If download is requested**, the system generates an Excel report of the claims.
+
+10. **Finally, the system returns the police station list with claim details** to the frontend.
+
+✅ **Simple meaning:**
+This API is used by **DSP officers to view all claims from police stations under their district.**
