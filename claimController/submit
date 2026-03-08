@@ -1,0 +1,31 @@
+Here is the explanation in **very simple English (10 points)**:
+
+1. **The API receives claim details** from the frontend when the user submits the application.
+
+2. **The system finds the logged-in user** who is submitting the claim.
+
+3. **It checks if the claim exists** using the claim ID.
+   If the claim is not found, the system shows an error.
+
+4. **It also checks if the victim details exist** for that claim.
+   If the victim is not found, the system shows an error.
+
+5. **If DSP and RDO officers are not already assigned**, the system automatically finds and assigns the correct officers based on the police district and RDO area.
+
+6. **The system gets FIR details** related to the accident for sending notifications.
+
+7. **If clarification was previously requested** by DSP or RDO, the system saves the clarification response provided by the IO.
+
+8. **If this is a normal submission**, the system sends SMS notifications to:
+
+   * IO officer
+   * SHO officer
+   * Claimant
+   * DSP officer
+
+9. **The system records the action in claim history** so it knows who submitted the claim and when.
+
+10. **Finally, the system updates the claim status to “Submitted”, saves the submission time, and stores everything in the database.**
+
+✅ **Simple meaning:**
+This API is used to **submit the claim application so it moves to the next level for verification by higher officers.**
