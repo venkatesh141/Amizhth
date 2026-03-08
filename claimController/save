@@ -1,0 +1,25 @@
+Here is the **same explanation in very simple English (anyone can understand)**:
+
+1. **The system finds the logged-in user** who is saving the claim.
+
+2. **It checks the claim ID** sent from the request and loads that claim from the database.
+   If the claim does not exist, it shows an error.
+
+3. **It finds the correct RDO officers** based on the selected Taluk and assigns them to the claim.
+
+4. **It saves claimant details** like name, phone number, email, bank account number, IFSC, and account holder name.
+
+5. **It saves location and officer details** such as Police Station, DSP, RDO, Taluk, and Village.
+
+6. **It updates the claim status** depending on who is editing the claim (IO, RDO initiator, or RDO verifier).
+
+7. **It updates FIR details**, mainly the IRAD number related to the accident.
+
+8. **It updates victim injury details** and calculates the correct compensation amount based on the injury type.
+
+9. **It saves uploaded documents** like victim photo, claimant photo, wound certificate, discharge summary, death certificate, and NOC files.
+
+10. **Finally, it saves the changes and records the action in claim history** so the system knows who updated the claim and when.
+
+✅ **Simple meaning:**
+This API is used to **save or update all claim details like claimant information, victim information, documents, and claim status.**
