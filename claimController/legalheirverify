@@ -1,0 +1,25 @@
+Here is the explanation in **very simple English (10 points)**:
+
+1. **The API receives three inputs**: Legal Heir number, Victim ID, and Claim ID.
+
+2. **The system finds the logged-in user** who is performing this verification.
+
+3. **It checks if the claim exists** using the Claim ID.
+   If the claim does not exist, it throws an error.
+
+4. **The system removes any old legal heir records** already linked to this claim.
+
+5. **It also clears the legal heir associations** related to this claim from the database.
+
+6. **The claim is marked as "legal heir not verified"** before starting the new verification process.
+
+7. **The system calls an external service** using the Legal Heir number to get the legal heir details.
+
+8. **If legal heirs are found**, the system saves each legal heir's information (name, age, relationship, marital status, alive/deceased).
+
+9. **Each legal heir is then linked to the claim** by creating a legal heir association record.
+
+10. **Finally, the system returns the list of verified legal heirs** with a success response.
+
+✅ **Simple meaning:**
+This API is used to **verify a legal heir certificate number and save the legal heir details for a claim.**
