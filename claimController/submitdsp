@@ -1,0 +1,24 @@
+Here is the explanation in **very simple English (10 points)**:
+
+1. **The API receives a list of claim approvals** from the frontend that the DSP officer wants to process.
+
+2. **The system finds the logged-in user**, who is the DSP performing the action.
+
+3. **For each claim in the list**, the system finds the claim details from the database.
+
+4. **It also gets victim and FIR details** related to that claim.
+
+5. **The system creates a claim history record** to store what action the DSP performed and when.
+
+6. **If the DSP recommends the claim**, the claim is forwarded to the **RDO Initiator** for the next level of verification.
+
+7. **If the DSP needs more information**, the system sends a **clarification request back to the IO** with remarks explaining what is missing.
+
+8. **If the DSP is responding to a clarification request** from RDO officers, the system saves the response and forwards it to the appropriate RDO officer.
+
+9. **The system updates the claim status** based on the DSP's action (recommended, clarification requested, or clarification submitted).
+
+10. **Finally, the system saves the claim updates and history**, and sends SMS notifications to the claimant and relevant officers when required.
+
+✅ **Simple meaning:**
+This API allows the **DSP officer to review a claim and either approve it for the next stage or request clarification from lower officers.**
