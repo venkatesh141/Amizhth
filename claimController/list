@@ -1,0 +1,24 @@
+Here is the explanation in **very simple English (10 points)**:
+
+1. **The API receives request details** like search text, page number, list size, and claim status from the frontend.
+
+2. **The system finds the logged-in user** and gets the Police Station code (PS code) of that user.
+
+3. **The system searches FIR records** in the database that belong to that Police Station and are active.
+
+4. **If a search text is given**, the system filters FIR records by **FIR number or IRAD number**.
+
+5. **For each FIR found**, the system collects basic accident details like FIR number, IRAD number, accident date, time, place, and police station name.
+
+6. **The system then finds all victims** related to that FIR.
+
+7. **For each victim**, the system checks if a **claim already exists**.
+
+8. **If a claim exists**, the system adds claim information such as claim number, claim status, and victim details to the response.
+
+9. **The system marks claims that require action** (for example when IO needs to update or respond to clarification).
+
+10. **Finally, the system returns the FIR list with claim details**, along with pagination or Excel download if requested.
+
+✅ **Simple meaning:**
+This API is used to **get a list of FIRs and their claim details for a Police Station, including victims and claim status.**
