@@ -1,0 +1,24 @@
+Here is the explanation in **very simple English (10 points)**:
+
+1. **The API receives a claim number** from the request.
+
+2. **The system searches the database** for all clarification records related to that claim number.
+
+3. **It gets the list of clarification history** for that claim.
+
+4. **For each clarification record**, the system reads details like who requested the clarification.
+
+5. **It checks whether the clarification has been submitted or not.**
+
+6. **The system collects remarks and comments** given during the clarification request.
+
+7. **It also collects response comments** if someone has already replied to the clarification.
+
+8. **The system formats the date and time** of when the clarification was requested and when the response was given.
+
+9. **All clarification records are converted into a response format** that the frontend can easily display.
+
+10. **Finally, the system returns the clarification history list** along with a success message.
+
+✅ **Simple meaning:**
+This API is used to **view the clarification history of a claim, including requests and responses between officers.**
