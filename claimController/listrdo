@@ -1,0 +1,35 @@
+Here is the explanation in **very simple English (10 points)**:
+
+1. **The API receives request details** such as search text, page number, list size, and claim status.
+
+2. **The system finds the logged-in user** (RDO Initiator, RDO Verifier, or RDO Approver).
+
+3. **If a search value is given**, the system searches victims using the victim identifier or claim number.
+
+4. **Based on the user role**, the system fetches claims:
+
+   * RDO Verifier → claims assigned to verifier
+   * RDO Initiator → claims assigned to initiator
+   * RDO Approver → claims assigned to approver
+
+5. **The system checks each claim’s status** to decide whether it should appear in the list.
+
+6. **If the claim matches the requested status**, it is marked to be included in the result.
+
+7. **For each valid claim**, the system collects details like:
+
+   * Victim name
+   * Victim identifier
+   * Injury type
+   * Claim number
+   * Claim amount
+   * Claim status
+
+8. **If the user wants to download the list**, the system generates an Excel report.
+
+9. **The system applies pagination** so only a certain number of claims are returned per page.
+
+10. **Finally, the system returns the claim list with victim details and status information.**
+
+✅ **Simple meaning:**
+This API is used by **RDO officers to view claims assigned to them and check their current status.**
