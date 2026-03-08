@@ -1,0 +1,23 @@
+Here are the **10 simple points explaining what this function does**:
+
+1. **Gets the logged-in user** from the system using the mobile number stored in the JWT token.
+
+2. **Receives a list of victim IDs** from the request and processes each victim one by one.
+
+3. **Fetches victim details** from the database using the victim ID.
+
+4. **Checks if a claim already exists** for that victim. If a claim already exists, it throws an error and stops the process.
+
+5. **Fetches FIR details** related to the victim using the FIR ID.
+
+6. **Generates a unique claim number** using a prefix, the injury type (Fatal or Non-Fatal), and a running number.
+
+7. **Determines the claim amount** based on the injury type (for example, Fatal cases get the configured fatal fund amount).
+
+8. **Creates a new claim record** with details like victim ID, phone number, claim number, claim amount, and who created the claim.
+
+9. **Updates related data and sends SMS notifications** to the claimant and relevant officers (IO, SHO, or RDO depending on the role).
+
+10. **Stores the action in claim history** so the system records that the claim was initiated and by which user.
+
+If you want, I can also give you a **very short 5-point version (interview-ready explanation)** so you can explain this API quickly in meetings or interviews.
