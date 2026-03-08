@@ -1,0 +1,36 @@
+Here is the explanation in **very simple English (10 points)**:
+
+1. **The API receives a request** containing the claim ID and a status value.
+
+2. **The system finds the claim** in the database using the claim ID.
+
+3. **If the claim exists**, the system reads the current claim status.
+
+4. **The system prepares a progress flow** with 7 stages to show how far the claim has moved in the process.
+
+5. **Each stage is marked with a status**, such as:
+
+   * Completed
+   * In Progress
+   * Rejected / Failed
+
+6. **Based on the requested status**, the system decides which claim history records should be shown.
+
+7. **It then fetches the claim history records** from the database for those selected statuses.
+
+8. **For each history record**, the system collects details like:
+
+   * Activity performed
+   * User name
+   * Remarks
+   * Time of action
+
+9. **The system prepares the final response** containing:
+
+   * Claim history list
+   * Progress status for each stage
+
+10. **Finally, it sends the history and progress details back to the frontend** with a success response.
+
+✅ **Simple meaning:**
+This API is used to **show the full history and progress of a claim, including who performed each action and the current stage of the claim process.**
