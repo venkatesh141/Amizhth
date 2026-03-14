@@ -1,0 +1,21 @@
+Here is the **simple explanation of what this API is doing in 10 understandable points**.
+
+1. This API is used to **get the list of police stations for a given district** from the external CCTNS system.
+
+2. When the frontend calls **`/police/station/list`**, it sends the **district name as a request parameter**.
+
+3. The controller receives the request and **calls the service method**, passing the district name and the user's IP address.
+
+4. The service method simply **calls the utility method (`fIRUtil`)** which handles the external API call.
+
+5. Inside the utility, the system **creates a log record** to store information like IP address, request details, user name, and request status.
+
+6. The system prepares a **JSON request containing the CCTNS username, password, and the district name**.
+
+7. For security, the **username and password are encrypted using AES encryption** before storing them in the log.
+
+8. The system then **calls the external CCTNS Police Station API using an HTTP request**.
+
+9. When the response is received, the system **decrypts the response and extracts the police station names** for that district.
+
+10. The list of police stations is **returned to the frontend**, and the request status is logged as **SUCCESS** (or FAILED if an error occurs).
