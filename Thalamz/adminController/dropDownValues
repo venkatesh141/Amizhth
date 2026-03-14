@@ -1,0 +1,10 @@
+1. This API receives a **GET request with a key parameter**.
+2. The controller passes this **key to the admin service**.
+3. The service creates a **DropDownDTO object to hold the response data**.
+4. It queries the database to **find an active dropdown configuration matching the key**.
+5. It also checks that the **current date is within the start and end date range**.
+6. If multiple records exist, it **selects the one with the highest priority**.
+7. It retrieves the **dropdown values stored as JSON from the database**.
+8. These dropdown values are **set into the DropDownDTO response object**.
+9. A **success response status is added to the response**.
+10. Finally, the API **returns the dropdown values to the frontend with HTTP 200 status**.
