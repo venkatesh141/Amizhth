@@ -1,0 +1,10 @@
+1. This API receives a **GET request to logout a user using the user id**.
+2. The controller sends the **user id to the authentication service**.
+3. The service **finds the latest login activity of that user where status is `LOGGEDIN`**.
+4. If such a record exists, it means **the user is currently logged in**.
+5. The system **changes the status from `LOGGEDIN` to `LOGGEDOUT`**.
+6. It **records the logout time as the current time**.
+7. The updated activity record is **saved back to the database**.
+8. If any error happens during this process, it **logs the error details into the error log table**.
+9. After processing, the service **returns the logout result to the controller**.
+10. Finally, the API **returns a success or failure message to the frontend**.
