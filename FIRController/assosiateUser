@@ -1,0 +1,21 @@
+Here is the **simple explanation of what this API is doing in 10 understandable points**.
+
+1. This API is used to **associate (link) victims with the logged-in user** in the CMARF system.
+
+2. When the frontend calls **`/user/associate`**, it sends a **list of victim IDs** that the user wants to associate with.
+
+3. The system first **identifies the logged-in user** using the mobile number from the JWT token.
+
+4. For each victim ID received, the system **fetches the victim details from the database**.
+
+5. The system then checks whether **this victim is already associated with the current user**.
+
+6. If the victim is already associated, the system checks **whether a claim already exists for that association**.
+
+7. If a claim does not exist or the claim status is **9 (which means the claim is cancelled or invalid)**, the system marks that **a new claim can be generated**.
+
+8. If no association exists between the user and the victim, the system also marks that **a new claim can be created**.
+
+9. The code section that actually **creates a new claim, generates a claim number, assigns claim amount, sends SMS, and stores claim history** is currently **commented out**, so it is not executed.
+
+10. Finally, the API **returns a success response to the frontend**, indicating that the association process completed successfully.
