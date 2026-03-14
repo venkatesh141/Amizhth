@@ -1,0 +1,10 @@
+1. This API receives a **GET request to retrieve business details of the logged-in user**.
+2. The system **identifies the current user using the JWT token**.
+3. It **searches the database for business details linked to that user**.
+4. The query checks for **records where the user id matches and the record is active**.
+5. If no business details are found, the **system throws an error saying details are not found**.
+6. If the record exists, the **business details model is retrieved from the database**.
+7. The model data is **converted into a BusinessDetailsDTO object**.
+8. This DTO contains the **business information needed by the frontend**.
+9. The DTO is **returned from the service to the controller**.
+10. Finally, the API **returns the business details to the frontend as a response**.
