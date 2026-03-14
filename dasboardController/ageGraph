@@ -1,0 +1,27 @@
+Here is the **simple explanation of what this Age Graph API is doing in 10 points**.
+
+1. This API is used to **generate an age-based graph for the dashboard** showing how many victims fall into different age groups.
+
+2. When the **frontend calls `/ageGraph` API**, it sends filter details (like district, date, etc.) in the request body.
+
+3. The controller receives the request and **calls the service method** to calculate the age statistics.
+
+4. The service defines **age ranges** that will be used for the graph:
+
+   * 0–20
+   * 21–40
+   * 41–60
+   * 61–80
+   * 81–100
+
+5. The system applies **dashboard filters** using a specification so that only the filtered claims are considered.
+
+6. For each age range, the system **finds all active victims whose age falls within that range**.
+
+7. It then **gets the victim IDs** for those victims from the victim table.
+
+8. Using those victim IDs, the system **counts how many claims are associated with those victims**.
+
+9. These counts for each age range are **stored in a list**, which represents the data for the age graph.
+
+10. Finally, the counts are placed into the response object with a **success message and sent to the frontend**, which uses the data to **display the age distribution graph on the dashboard**.
