@@ -1,0 +1,27 @@
+Here is the **simple explanation of what this API is doing in 10 understandable points**.
+
+1. This API is used to **get FIR details and store/update them in the CMARF system**.
+
+2. When the frontend sends the **FIR number, district, and police station**, the API calls an external utility (`fIRUtil`) to **fetch FIR information from another system**.
+
+3. The system **checks if victim details exist in the FIR data**. If no victims are found, it throws an error saying **victims not found**.
+
+4. It also checks a **special rule for RDO Initiator users**: if the accident date is after **16-02-2026**, the system throws an **invalid accident date error**.
+
+5. The system then **checks whether this FIR already exists in the database**.
+
+   * If it does not exist → a **new FIR record is created**.
+   * If it already exists → the **existing FIR details are updated**.
+
+6. Some sensitive information like the **police station code is encrypted** before storing it in the database.
+
+7. The system then processes **victim details from the FIR**:
+
+   * If a victim does not exist → a **new victim record is created**.
+   * If the victim already exists → the **victim details are updated**.
+
+8. Next, the system processes **vehicle details involved in the accident** and stores them in the database.
+
+9. For each vehicle, the system calls **Parivahan service** to get additional vehicle information such as **owner name, vehicle class, address, and RC status**, and saves those details.
+
+10. Finally, the API **saves all FIR, victim, vehicle, and driver details**, prepares a **success response**, and returns the FIR information back to the frontend.
