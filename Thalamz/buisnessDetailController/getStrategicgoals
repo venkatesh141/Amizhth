@@ -1,0 +1,10 @@
+1. This API receives a **GET request to fetch the strategic goals of the logged-in user**.
+2. The system **identifies the user using the JWT token**.
+3. It **retrieves the user record from the database using the mobile number**.
+4. The system then **searches for business details linked to that user**.
+5. The query checks for **active business details using the user id**.
+6. If no record is found, it **throws an error saying strategic goals are not found**.
+7. If the record exists, the **business details data is retrieved from the database**.
+8. The data is **converted into a BusinessDetailsDTO object**.
+9. This DTO contains the **strategic goal information needed by the frontend**.
+10. Finally, the API **returns the strategic goals data to the frontend**.
