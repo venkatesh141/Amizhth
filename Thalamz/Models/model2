@@ -1,0 +1,44 @@
+## 1️⃣ UserActivityModel
+
+**Step 0:** This model represents the **`useractivity` table**.
+**Step 1:** It records **user login and logout activity**.
+**Step 2:** `id` is the **unique record id**.
+**Step 3:** `userid` tells **which user performed the activity**.
+**Step 4:** `status` stores the **activity status** (login/logout).
+**Step 5:** `ip` stores the **user’s IP address**.
+**Step 6:** `logintime` stores **when the user logged in**.
+**Step n:** `logouttime` stores **when the user logged out**.
+
+---
+
+## 2️⃣ TopicModel
+
+**Step 0:** This model represents the **`topics` table**.
+**Step 1:** It stores **topics used in the system**.
+**Step 2:** `id` is the **unique topic id**.
+**Step 3:** `label` stores the **topic name**.
+**Step 4:** `icon` stores the **icon related to the topic**.
+**Step 5:** `profiletype` tells **which profile type the topic belongs to**.
+**Step 6:** `userid` shows **who created the topic**.
+**Step n:** `iscustom` tells if the topic is **custom created or system default**.
+
+---
+
+## 3️⃣ TopicAuthorityDistribution
+
+**Step 0:** This model represents a **table storing authority distribution for topics**.
+**Step 1:** It shows **how much authority a user has in a topic**.
+**Step 2:** `id` is the **unique record id**.
+**Step 3:** `userId` identifies **which user this record belongs to**.
+**Step 4:** `percentage` stores **authority percentage**.
+**Step n:** `name` stores the **topic or authority name**.
+
+---
+
+## 4️⃣ ToneMaster
+
+**Step 0:** This model represents the **tone master table**.
+**Step 1:** It stores **different content tones** used in the system.
+**Step 2:** `id` is the **unique id**.
+**Step 3:** `name` stores the **tone name** (example: professional, friendly, motivational).
+**Step n:** This table is used when the system **generates content with different tones**.
