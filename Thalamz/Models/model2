@@ -42,3 +42,61 @@
 **Step 2:** `id` is the **unique id**.
 **Step 3:** `name` stores the **tone name** (example: professional, friendly, motivational).
 **Step n:** This table is used when the system **generates content with different tones**.
+
+
+
+## 1️⃣ SupportStatusHistoryModel
+
+**Step 0:** This model represents the **`supportstatushistory` table**.
+**Step 1:** It stores the **history of status changes for support tickets**.
+**Step 2:** `supportId` tells **which support ticket this status belongs to**.
+**Step 3:** `status` stores the **current status number (open, closed, etc.)**.
+**Step 4:** `active` shows **whether the record is active**.
+**Step n:** `createdTime` stores **when the status was recorded**.
+
+---
+
+## 2️⃣ SupportDetails
+
+**Step 0:** This model represents the **`supportdetails` table**.
+**Step 1:** It stores **extra details or messages related to a support ticket**.
+**Step 2:** `supportid` links the record to a **specific support ticket**.
+**Step 3:** Fields like `name`, `email`, `phone` store **user contact details**.
+**Step 4:** `message` stores the **support message or reply**.
+**Step n:** It basically **stores conversation/details for a support request**.
+
+---
+
+## 3️⃣ Support
+
+**Step 0:** This model represents the **main `support` table**.
+**Step 1:** When a user **creates a support ticket**, it is saved here.
+**Step 2:** `userid` identifies **who created the ticket**.
+**Step 3:** `category`, `subject`, and `message` describe the **issue**.
+**Step 4:** `attachmentDoc` stores **any uploaded file**.
+**Step 5:** `ticketno` stores the **ticket number**.
+**Step n:** This table **manages support tickets in the system**.
+
+---
+
+## 4️⃣ SubscriptionPlan
+
+**Step 0:** This model represents the **`subscription_plan` table**.
+**Step 1:** It stores **different subscription plans offered in the system**.
+**Step 2:** `planTitle` and `planDescription` describe the **plan**.
+**Step 3:** `planAmount` stores the **price of the plan**.
+**Step 4:** `planType` stores the **type of subscription**.
+**Step 5:** `planFeatures` stores the **features included in the plan**.
+**Step n:** It basically **defines available subscription plans**.
+
+---
+
+## 5️⃣ SubscribtionPlanDetails
+
+**Step 0:** This model represents the **`subscribtionplandetailslist` table**.
+**Step 1:** It stores **detailed features of subscription plans**.
+**Step 2:** `title` and `subTitle` describe the **feature section**.
+**Step 3:** `description` explains the **feature in detail**.
+**Step 4:** `features` stores the **specific feature name**.
+**Step n:** This table **lists features that belong to subscription plans**.
+
