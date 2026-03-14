@@ -1,0 +1,10 @@
+1. This API receives a **DELETE request with a user id** from the admin.
+2. The controller sends this **user id to the admin service**.
+3. The service **finds the user in the database** where the id matches and the user is active.
+4. If the user exists, the system **does not permanently delete the record**.
+5. Instead, it **marks the user as inactive (`active = false`)**.
+6. It also **updates the modified time to the current time**.
+7. The updated user data is **saved back to the database**.
+8. The system **prepares the user’s name for notification**.
+9. It **sends an email to the user informing that the account was disabled by the admin**.
+10. Finally, the API **returns a success response to the frontend**.
