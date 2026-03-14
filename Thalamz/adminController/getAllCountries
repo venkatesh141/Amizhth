@@ -1,0 +1,10 @@
+1. This API receives a **GET request to fetch all countries**.
+2. The controller calls the **admin service method `getAllCountries()`**.
+3. The service queries the **database to get all country records** using `countryRepository.findAll()`.
+4. The result is a **list of country entities from the database**.
+5. The service then **loops through each country record**.
+6. Each country entity is **converted into a CountryDTO object**.
+7. Only required fields like **id and country name are mapped** to the DTO.
+8. All DTO objects are **collected into a list**.
+9. This list of country DTOs is **returned to the controller**.
+10. The API finally **sends the list of countries as a JSON response to the frontend**.
