@@ -1,0 +1,11 @@
+
+1. This API receives a **POST request to get the list of users for the admin panel**.
+2. The request contains **pagination details (page number, list size), search text, and planId filter**.
+3. The service **creates pagination and sorting (latest users first by created time)**.
+4. It builds a **dynamic database query using Specification**.
+5. The query **filters only active users and excludes some roles (0, 2, 4)**.
+6. Based on **planId**, it filters users: specific plan, users with any plan, or users without a plan.
+7. If a **search string is provided**, it filters users by **first name**.
+8. The filtered data is **retrieved from the database with pagination**.
+9. Each user entity is **converted into a UsersDTO object** and added to the response.
+10. The API returns the **user list, total pages, total count, and success status to the frontend**.
