@@ -1,0 +1,10 @@
+1. This API receives a **POST request for admin login with email and password**.
+2. It **decrypts the login type to ensure authentication is done using email**.
+3. The system **validates that email and password are provided in the request**.
+4. The password sent from the frontend is **decrypted before verification**.
+5. The system **searches the user in the database using the email**.
+6. If the user is inactive or not found, it **throws the appropriate error**.
+7. It **checks failed login attempts and locks the account if attempts exceed the limit**.
+8. The entered password is **compared with the decrypted stored password**.
+9. If authentication succeeds, the system **generates a JWT token and logs the login activity with the user’s IP address**.
+10. Finally, the API **returns the token, user details, role, privileges, and success response to the frontend**.
