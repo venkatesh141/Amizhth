@@ -1,0 +1,10 @@
+1. This API receives a **POST request for user login with mobile/email and OTP**.
+2. It checks whether the user is trying to login using **mobile number or email**.
+3. The system **searches the user in the database and verifies the account is active**.
+4. If the user does not exist or is inactive, it **throws an appropriate error**.
+5. It checks whether the **OTP is provided in the request**.
+6. The system **retrieves the latest OTP stored for that user from the database**.
+7. The entered OTP and stored OTP are **decrypted and compared for validation**.
+8. If the OTP is wrong, the **failed login attempt count increases and may lock the account after 3 attempts**.
+9. If the OTP is correct and not expired, the system **marks the OTP as verified and updates the user's last login time**.
+10. Finally, the system **generates a JWT token, logs the login activity, and returns user details with the token to the frontend**.
