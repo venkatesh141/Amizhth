@@ -1,0 +1,10 @@
+1. This API receives a **GET request with a `countryId` parameter**.
+2. The controller sends this **countryId to the admin service**.
+3. The service checks the **value of countryId**.
+4. If `countryId = 0`, it **fetches all active states from the database**.
+5. If `countryId` has a value, it **fetches states belonging to that specific country**.
+6. The data is retrieved using the **stateRepository**.
+7. The result is a **list of State entities from the database**.
+8. Each state entity is **converted into a StateDTO object**.
+9. Only required fields like **id and state name are mapped to the DTO**.
+10. The API returns the **list of states to the frontend as JSON**.
