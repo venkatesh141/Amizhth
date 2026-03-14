@@ -1,0 +1,67 @@
+I will explain each model in a **simple flow (Step 0 → Step n)** so it is easy to understand.
+
+---
+
+## 1️⃣ UserTopicModel
+
+**Step 0:** This class represents a **database table called `usertopics`**.
+**Step 1:** When a user selects topics in the application, the data is saved here.
+**Step 2:** `id` is the **unique id for each record**.
+**Step 3:** `userid` tells **which user selected the topic**.
+**Step 4:** `topicid` tells **which topic the user selected**.
+**Step 5:** `profiletype` stores **the type of user profile**.
+**Step n:** So this table **connects users with the topics they choose**.
+
+---
+
+## 2️⃣ UserTestSession
+
+**Step 0:** This class represents the **`user_test_session` table**.
+**Step 1:** When a user takes a **test or quiz**, the system records it here.
+**Step 2:** `id` is the **unique record id**.
+**Step 3:** `userid` shows **which user took the test**.
+**Step 4:** `testtype` shows **what type of test it is**.
+**Step 5:** `questionid` stores **which question was involved**.
+**Step 6:** `createdtime` stores **when the test happened**.
+**Step n:** So this table **tracks user test activity**.
+
+---
+
+## 3️⃣ UsersPersonalityModel
+
+**Step 0:** This class represents the **`userspersonality` table**.
+**Step 1:** It stores **personality related data of users**.
+**Step 2:** `id` is the **unique id**.
+**Step 3:** `email` identifies **which user this personality record belongs to**.
+**Step 4:** `active` tells **whether this record is active or not**.
+**Step n:** So this table **stores personality information of users**.
+
+---
+
+## 4️⃣ UsersModel
+
+**Step 0:** This class represents the **main `users` table**.
+**Step 1:** When a user **registers in the system**, their details are saved here.
+**Step 2:** `id` is the **unique user id**.
+**Step 3:** Fields like `firstname`, `lastname`, `email`, `mobilenumber` store **basic user information**.
+**Step 4:** `password` stores the **login password**.
+**Step 5:** `roleid` defines **what role the user has**.
+**Step 6:** Fields like `profiletype`, `persona` store **profile related info**.
+**Step 7:** `createdtime` and `modifiedtime` track **when the account was created or updated**.
+**Step n:** So this table **stores all information about users in the system**.
+
+---
+
+## 5️⃣ UserRolePrivilegeModel
+
+**Step 0:** This class represents the **`userroleprivilege` table**.
+**Step 1:** The system has **roles and permissions**.
+**Step 2:** `roleid` represents a **user role** (example: admin, user).
+**Step 3:** `privilegeid` represents a **permission**.
+**Step 4:** This table connects **roles with their permissions**.
+**Step 5:** `createdtime` and `modifiedtime` store **when it was created or updated**.
+**Step n:** So this table **controls what actions each role can do**.
+
+---
+
+If you want, next I can also explain **why Thalamz project has these 5 tables and how they connect together**, which will make the **whole project architecture clear in 2 minutes**.
