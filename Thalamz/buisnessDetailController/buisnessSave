@@ -1,0 +1,10 @@
+1. This API receives a **POST request to save business details of the logged-in user**.
+2. It **identifies the current user using the JWT token**.
+3. The system **searches if business details already exist for that user** in the database.
+4. If no record exists, it **creates a new business details record**.
+5. If a record already exists, it **updates the existing business details**.
+6. It **sets values like business industry, business name, business size, business stage, and website** from the request.
+7. These details are **stored in the BusinessDetailsModel**.
+8. The system **saves the business details in the database**.
+9. If the operation succeeds, the **response status is set to Success**.
+10. If an error occurs, the **response status is set to Failed with the error message**.
