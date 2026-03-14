@@ -1,0 +1,10 @@
+1. This API receives a **GET request with mobileNumber and tenant**.
+2. It **logs the received mobile number** for tracking.
+3. It **replaces spaces with “+”** in the mobile number to format it correctly.
+4. It **checks if the mobile number is empty or missing**.
+5. If missing, it **returns a bad request error message**.
+6. If valid, the controller **calls `externalAuthClient` to generate a token**.
+7. The service **calls an external authentication API using RestTemplate**.
+8. It sends the **mobile number and tenant as parameters with request headers**.
+9. If the external API responds successfully, the **token is extracted from the response**.
+10. The API **returns the generated token to the frontend or an error if the call fails**.
