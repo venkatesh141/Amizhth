@@ -1,0 +1,10 @@
+1. This API receives a **POST request to generate an OTP for login**.
+2. It checks whether the request contains a **mobile number or email**.
+3. The system **searches the user in the database using the provided identifier**.
+4. If the user is not found, it **returns a message saying the user is not registered**.
+5. If the user exists, the system **generates a random 6-digit OTP**.
+6. The OTP is **encrypted using AES encryption for security**.
+7. The encrypted OTP is **saved in the database with a validity time of 5 minutes**.
+8. The system **prepares the OTP digits and user details for email notification**.
+9. It **sends the OTP to the user’s email using the email service**.
+10. Finally, the API **returns a success response indicating the OTP was sent**.
