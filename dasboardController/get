@@ -1,0 +1,19 @@
+1. This API is used to **get dashboard statistics for claims** in the CMARF system.
+
+2. When the **frontend calls this API**, the backend starts collecting information about claims from the database.
+
+3. It first calculates the **total number of active claims** present in the system.
+
+4. Then it calculates how many claims are **still pending** (claims that are still in process).
+
+5. It also counts how many claims are **approved**, meaning the claim process is completed successfully.
+
+6. The API counts how many claims are **rejected**, meaning they were denied during the process.
+
+7. It finds how many claims are **currently pending with the Investigation Officer (IO)**.
+
+8. It finds how many claims are **currently pending with the DSP officer**.
+
+9. It also checks how many claims are **pending with the RDO Verifier and RDO Approval stages**.
+
+10. Finally, it **collects all these counts and sends them back to the frontend**, so the dashboard can display the claim statistics.
