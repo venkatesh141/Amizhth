@@ -1,0 +1,10 @@
+1. This API receives a **GET request to fetch details of a specific post using postId**.
+2. The system **identifies the logged-in user using the JWT token**.
+3. It **searches the database for the post that belongs to that user and is active**.
+4. If the user or post is not found, it **throws an error**.
+5. The system **extracts post details like post date, post time, post type, text, and status**.
+6. The **post date and time are formatted properly before sending to the frontend**.
+7. It **fetches media files related to that post from the database**.
+8. If the post type contains images, it **generates AWS pre-signed URLs for the images**.
+9. If the post type is video, it **generates a pre-signed URL for the video file**.
+10. Finally, the API **returns the post details along with image or video URLs to the frontend**.
