@@ -1,0 +1,10 @@
+1. This API receives a **POST request to fetch content posts of the logged-in user**.
+2. The system **identifies the current user using the JWT token**.
+3. It **builds a database query to get posts belonging to that user and marked as active**.
+4. If the request type is **weekly**, it filters posts **between the start and end dates of that week**.
+5. If the request type is **monthly**, it filters posts **for the selected month**.
+6. The system **retrieves the filtered posts from the database**.
+7. If no posts are found, it **returns an empty post list with a success response**.
+8. For each post, it **fetches the related media files linked to that post**.
+9. The system **generates secure AWS pre-signed URLs for the media files**.
+10. Finally, the API **returns the post details along with media URLs to the frontend**.
