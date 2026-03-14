@@ -65,3 +65,67 @@ I will explain each model in a **simple flow (Step 0 → Step n)** so it is easy
 ---
 
 If you want, next I can also explain **why Thalamz project has these 5 tables and how they connect together**, which will make the **whole project architecture clear in 2 minutes**.
+
+
+
+
+## 1️⃣ UserRoleModel
+
+**Step 0:** This model represents the **`userrole` table** in the database.
+**Step 1:** The system has different **roles for users**.
+**Step 2:** `id` is the **unique id for the role**.
+**Step 3:** `name` stores the **role name** (example: admin, user).
+**Step 4:** `description` explains **what the role is for**.
+**Step 5:** `image` stores an **image related to the role**.
+**Step n:** So this table **stores different roles available in the system**.
+
+---
+
+## 2️⃣ UserProfileModel
+
+**Step 0:** This model represents the **`user_profile` table**.
+**Step 1:** It stores **extra profile information of users**.
+**Step 2:** `id` is the **unique id for the profile record**.
+**Step 3:** `userid` links the **profile to a specific user**.
+**Step 4:** `gender` stores the **user's gender**.
+**Step 5:** `alternatemobile` stores an **additional phone number**.
+**Step 6:** `logo` stores the **user profile image or logo**.
+**Step n:** So this table **stores additional profile details of users**.
+
+---
+
+## 3️⃣ UserPlan
+
+**Step 0:** This model represents the **`userplan` table**.
+**Step 1:** It stores **which subscription plan a user has purchased**.
+**Step 2:** `userid` identifies **which user owns the plan**.
+**Step 3:** `planid` identifies **which plan the user selected**.
+**Step 4:** `paymentReferenceId` stores the **payment transaction reference**.
+**Step 5:** `active` tells **whether the plan is currently active**.
+**Step 6:** `datecreated` stores **when the plan started**.
+**Step 7:** `planExpiryDate` stores **when the plan will expire**.
+**Step n:** So this table **tracks user subscriptions and plan status**.
+
+---
+
+## 4️⃣ UserOutcomes
+
+**Step 0:** This model represents the **`user_outcomes` table**.
+**Step 1:** It connects **users with outcomes** in the system.
+**Step 2:** `id` is the **unique record id**.
+**Step 3:** `userid` identifies **which user the record belongs to**.
+**Step 4:** `outcomeid` identifies **which outcome is linked to the user**.
+**Step n:** So this table **stores outcomes assigned to users**.
+
+---
+
+## 5️⃣ UserOtpModel
+
+**Step 0:** This model represents the **`userotp` table**.
+**Step 1:** It stores **OTP (one-time password) details for users**.
+**Step 2:** `userid` identifies **which user requested the OTP**.
+**Step 3:** `otp` stores the **OTP value**.
+**Step 4:** `status` shows **whether the OTP is used or valid**.
+**Step 5:** `validity` stores **until when the OTP is valid**.
+**Step 6:** `createdtimestamp` stores **when the OTP was created**.
+**Step n:** So this table **manages OTP verification for users**.
