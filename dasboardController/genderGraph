@@ -1,0 +1,24 @@
+Here is the **simple explanation of what this API is doing in 10 clear points**.
+
+1. This API is used to **generate a gender-based graph for the dashboard** showing how many victims are Male, Female, and Transgender.
+
+2. When the **frontend calls `/genderGraph` API**, it sends some filter details (like district, date, etc.) in the request body.
+
+3. The controller receives this request and **calls the service method to process the data**.
+
+4. The service creates two lists:
+
+   * **series** → stores the count values
+   * **labels** → stores the gender names for the graph.
+
+5. A **filter specification is created** based on the dashboard filters so that claims are counted only according to the selected conditions.
+
+6. The system first **finds all active victims whose gender is Male**.
+
+7. Then it **counts how many claims are linked to those Male victims** and adds that count to the series list with the label **“Male”**.
+
+8. The same process is repeated for **Female victims** and then for **Transgender victims**, counting how many claims belong to each gender.
+
+9. If all counts are zero, the graph data is not populated; otherwise, the **series (counts) and labels (gender names) are set in the response**.
+
+10. Finally, a **success response is added and the data is returned to the frontend**, which uses it to display the **gender distribution graph on the dashboard**.
