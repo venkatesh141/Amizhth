@@ -1,0 +1,10 @@
+1. This API receives a **POST request to verify user registration using OTP**.
+2. It **finds the user in the database using user id or username/email**.
+3. If the user is not found, it **throws an invalid username error**.
+4. It **checks whether the OTP is provided in the request**.
+5. The entered OTP is **encrypted to match the stored OTP format**.
+6. The system **searches the database for the generated OTP linked to that user**.
+7. If the OTP record is found, it **checks whether the OTP is still valid (not expired)**.
+8. If valid, the OTP status is **updated to VERIFIED and saved**.
+9. The user account is **enabled and login-related fields are updated**.
+10. Finally, the API **returns a success response confirming the registration verification**.
