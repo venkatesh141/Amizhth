@@ -1,0 +1,21 @@
+Here is the **simple explanation of what this API is doing in 10 clear points**.
+
+1. This API is used to **get the list of districts from the external CCTNS system**.
+
+2. When the frontend calls **`/districts/list`**, the controller sends the request to the **service layer** along with the user’s IP address.
+
+3. The service method simply **calls a utility method (`fIRUtil`)** to fetch the district list.
+
+4. Inside the utility, the system **creates a log record** to store request details like IP address, status, time, and user name.
+
+5. The system prepares a **JSON request containing the CCTNS username and password** required to access the external API.
+
+6. For security, the **username and password are encrypted using AES encryption** before being stored in the log.
+
+7. The system then **calls the external CCTNS District API using an HTTP request**.
+
+8. When the response is received, the system **decrypts the response data** and reads the list of districts from the response.
+
+9. All district names from the response are **added to a list and the request status is updated as SUCCESS in the log table**.
+
+10. Finally, the **district list is returned to the frontend**, and if any error occurs, the system **logs the failure and throws an exception**.
