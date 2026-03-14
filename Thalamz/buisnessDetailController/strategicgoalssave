@@ -1,0 +1,10 @@
+1. This API receives a **POST request to save the user’s strategic business goals**.
+2. It **identifies the logged-in user using the JWT token**.
+3. The system **checks if business details already exist for that user** in the database.
+4. If no record exists, it **creates a new business details record**.
+5. If a record already exists, it **updates the existing record**.
+6. It **stores the business goal provided by the user**.
+7. It also **stores the business target and business geography**.
+8. These values are **saved in the BusinessDetailsModel**.
+9. The system **saves the updated business details in the database**.
+10. Finally, the API **returns a success response or a failure message if an error occurs**.
