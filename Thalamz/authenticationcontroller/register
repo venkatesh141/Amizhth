@@ -1,0 +1,10 @@
+1. This API receives a **POST request to register a new user**.
+2. It **validates the mobile number and first name** from the request.
+3. The system **checks if the mobile number already exists in the database**.
+4. If the user already exists, it **throws an error that the mobile number already exists**.
+5. If the user does not exist, the system **creates or updates a user record in the database**.
+6. It **sets user details like name, email, mobile number, role, profile type, and account status**.
+7. The system **generates a random 6-digit OTP for verification**.
+8. The OTP is **encrypted and stored in the database with a validity time**.
+9. The system **sends the OTP to the user’s email for verification**.
+10. Finally, the API **returns a success response with the registered user id**.
