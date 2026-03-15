@@ -1,0 +1,10 @@
+1. This API receives a **POST request to get the list of generated content topics for a user**.
+2. It **checks if a valid userId is provided in the request**.
+3. The system **creates pagination and sorting based on page number and list size**.
+4. It **fetches the user from the database to get the user’s profile type**.
+5. The system **retrieves all prompts created by that user**.
+6. Using those prompt IDs, it **filters topics that belong to the user’s prompts**.
+7. Additional filters can be applied for **topic status and search text**.
+8. The filtered topics are **retrieved from the database with pagination**.
+9. Each topic entity is **converted into a ContentCalenderDTO object**.
+10. Finally, the API **returns the list of topics along with total count and pages to the frontend**.
