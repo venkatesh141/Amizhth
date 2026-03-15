@@ -1,0 +1,10 @@
+1. This API is used to **get the content scheduled for a specific date**.
+2. The frontend sends the **date as a request parameter**.
+3. The system first **converts the given date string into a proper date format**.
+4. If the date format is invalid, the system **throws an invalid date format error**.
+5. After validating the date, the system searches the **ContentCalendar table for that date**.
+6. It only fetches the record if the content is **active**.
+7. If content exists for that date, the system **retrieves its details**.
+8. The database record is then **converted into a DTO format for the frontend**.
+9. The response includes details like **hook, content text, topic, and other content information**.
+10. Finally, the API returns the **content scheduled for that date with a success response**.
