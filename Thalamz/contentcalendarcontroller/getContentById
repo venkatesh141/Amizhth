@@ -1,0 +1,10 @@
+1. This API is used to **get the details of a specific content post**.
+2. The frontend sends the **content ID as a request parameter**.
+3. The system searches the **ContentCalendar table for that ID**.
+4. It only fetches the content if the record is **active**.
+5. If the content with the given ID does not exist, the system **throws an invalid ID error**.
+6. If the content exists, the system **retrieves all details of that content**.
+7. The database record is then **converted into a DTO format** for the frontend.
+8. This DTO contains details like **hook, content text, topic, post date, and other content information**.
+9. The system adds a **success response message** to the result.
+10. Finally, the API returns the **content details to the frontend**.
