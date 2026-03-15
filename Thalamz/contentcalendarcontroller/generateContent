@@ -1,0 +1,12 @@
+Here is the **10 line simple explanation** of what this API does:
+
+1. This API is used to **generate AI content for a social media post**.
+2. The user sends details like **content type, topic, and tone**.
+3. The system first **identifies the logged-in user using the JWT token**.
+4. It fetches the **user’s role and business details** such as industry and goal.
+5. Based on the **content type (Insight, Opinion, Story, etc.)**, the system selects the correct **content template**.
+6. It also gets the **word limit range** for that content type from the database.
+7. The system fills the template with values like **role, industry, topic, goal, and tone**.
+8. This completed template becomes the **prompt sent to Gemini AI**.
+9. Gemini AI generates the **hook and content text** for the post.
+10. The API returns the **AI-generated content back to the frontend** for the user.
