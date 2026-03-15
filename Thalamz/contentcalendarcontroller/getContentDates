@@ -1,0 +1,10 @@
+1. This API is used to **get all the dates on which content is scheduled** in the system.
+2. The frontend calls this API **without sending any parameters**.
+3. The system queries the **ContentCalendar table in the database**.
+4. It retrieves only the records where the **content is active**.
+5. From those records, it **collects only the post dates**.
+6. The result is a **list of dates where content posts are scheduled**.
+7. This helps the frontend **know which days have content available**.
+8. It can be used in features like **content calendar view or highlighting dates**.
+9. The list of dates is placed inside the **response object**.
+10. Finally, the API returns the **date list with a success response**.
