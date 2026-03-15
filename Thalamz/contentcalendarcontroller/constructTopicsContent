@@ -1,0 +1,10 @@
+1. This API receives a **POST request to generate a prompt for creating social media content**.
+2. The request contains **platform, topic, and content tone details**.
+3. The service **extracts these values from the request DTO**.
+4. It **constructs a prompt string using these inputs**.
+5. The prompt instructs the system to **generate a social media post**.
+6. It specifies **which platform the post will be published on**.
+7. It includes the **topic of the content**.
+8. It also includes the **tone of the content (e.g., professional, motivational)**.
+9. The generated prompt is **placed inside the response object**.
+10. Finally, the API **returns the constructed prompt to the frontend**.
