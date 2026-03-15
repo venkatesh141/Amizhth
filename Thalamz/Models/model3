@@ -1,0 +1,72 @@
+### **State Model**
+
+1. This model represents the **`state` table in the database**.
+2. It stores **states belonging to different countries**.
+3. `countryid` links the **state to a specific country**.
+4. `name` stores the **name of the state**.
+5. `active` shows whether the **state record is active or not**.
+6. `dateCreated` stores **when the record was created**.
+7. `lastUpdated` stores **when the record was last modified**.
+8. `id` is the **primary key for each state record**.
+9. The system uses this table to **fetch states based on country**.
+10. In short, this model **stores state details for countries**.
+
+---
+
+### **RolesModel**
+
+1. This model represents the **`roles` table in the database**.
+2. It stores **different roles in the system** (example: admin, user).
+3. `role` stores the **role name**.
+4. `active` indicates **whether the role is active**.
+5. `createdby` stores **who created the role record**.
+6. `createdtime` stores **when the role was created**.
+7. `modifiedby` stores **who last updated the role**.
+8. `modifiedtime` stores **when the role was last updated**.
+9. `id` is the **primary key for the role**.
+10. This table is used to **assign permissions or access levels to users**.
+
+---
+
+### **Prompt Model**
+
+1. This model represents the **`prompt` table** in the database.
+2. It stores **AI prompt data created by users**.
+3. `userid` identifies **which user created the prompt**.
+4. `prompt` stores the **actual prompt text**.
+5. `platform` stores **where the content will be used (e.g., LinkedIn)**.
+6. `active` indicates **whether the prompt is active**.
+7. `datecreated` stores **when the prompt was created**.
+8. `lastupdated` stores **when the prompt was modified**.
+9. `id` is the **unique identifier for each prompt**.
+10. This table is used to **store prompts used for content generation**.
+
+---
+
+### **OutcomesModel**
+
+1. This model represents the **`outcomes` table**.
+2. It stores **different outcomes or goals in the system**.
+3. `name` stores the **name of the outcome**.
+4. `description` explains **what the outcome means**.
+5. `image` stores an **image related to the outcome**.
+6. `id` is the **primary key for each outcome**.
+7. This table is usually used for **user selections or goal setting**.
+8. It helps the system **categorize user objectives**.
+9. Each outcome can be **linked to users or features**.
+10. In simple terms, it **stores available outcomes or goals**.
+
+---
+
+### **NewsletterModel**
+
+1. This model represents the **`newsletters` table**.
+2. It stores **newsletter content created by users**.
+3. `userid` identifies **which user created the newsletter**.
+4. `title` stores the **newsletter title**.
+5. `file` stores the **file or document related to the newsletter**.
+6. `month` indicates **which month the newsletter belongs to**.
+7. `scheduledate` and `time` store **when the newsletter will be published**.
+8. `status` indicates the **current status of the newsletter**.
+9. `createdtime` and `modifiedtime` track **creation and updates**.
+10. This table is used to **manage scheduled newsletters in the system**.
