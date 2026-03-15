@@ -1,0 +1,10 @@
+1. This API receives a **POST request to generate content topics using AI**.
+2. The request contains a **prompt, platform, and user id**.
+3. The service **modifies the prompt to ask the AI to return topics and descriptions in JSON format**.
+4. It sends the prompt to **Gemini AI service to generate topic suggestions**.
+5. The AI response is **cleaned to remove extra text or formatting**.
+6. The system **converts the AI JSON response into a list of topic objects**.
+7. The original **prompt is saved in the database with the user id and platform**.
+8. Each generated **topic and description is saved in the database linked to the prompt**.
+9. The system **prepares the response containing the generated topics**.
+10. Finally, the API **returns the list of AI-generated topics to the frontend**.
