@@ -1,0 +1,10 @@
+1. This API is used to **save a new topic or update an existing topic** in the system.
+2. The frontend sends details like **topic name, platform, prompt ID, and status**.
+3. The system first checks **whether the topic ID is provided** in the request.
+4. If the **ID exists**, it means the topic already exists and the system will **update that topic**.
+5. If the **ID is not provided or is 0**, the system will **create a new topic**.
+6. For an existing topic, the system updates **platform, prompt ID, topic text, and status**.
+7. For a new topic, the system **creates a new record with the given details**.
+8. The topic information is then **saved in the ContentTopic table in the database**.
+9. This API helps manage **topics used for content generation** in the system.
+10. Finally, the API returns a **success response confirming the topic was saved**.
