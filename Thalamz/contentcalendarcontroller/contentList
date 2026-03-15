@@ -1,0 +1,10 @@
+1. This API is used to **get the list of generated content posts for the user**.
+2. The frontend sends details like **topicId, page number, list size, search text, and status**.
+3. The system first **checks if the topicId is valid**; if it is 0, it throws an error.
+4. It then prepares **pagination settings** to control how many records are returned per page.
+5. The system fetches only **active content records from the database**.
+6. If a **search string is provided**, it filters the content by matching the text inside the post content.
+7. If a **status filter is provided**, it returns only the content with that specific status.
+8. The filtered data is then **retrieved from the ContentCalendar table using pagination**.
+9. Each database record is **converted into a DTO format suitable for the frontend**.
+10. Finally, the API returns the **content list along with total count and total pages for pagination**.
