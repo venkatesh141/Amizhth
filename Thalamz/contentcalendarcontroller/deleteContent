@@ -1,0 +1,10 @@
+1. This API is used to **delete a specific content post from the system**.
+2. The frontend sends the **content ID that needs to be deleted**.
+3. The system searches the **ContentCalendar table for that content ID**.
+4. It checks if the content **exists and is currently active**.
+5. If the content is not found, the system **throws an invalid ID error**.
+6. If the content exists, the system **does not permanently delete it from the database**.
+7. Instead, it **marks the content as inactive (active = false)**.
+8. The system also updates the **last updated time for the record**.
+9. The updated content record is then **converted into a response format**.
+10. Finally, the API returns a **success message confirming the content was deleted**.
