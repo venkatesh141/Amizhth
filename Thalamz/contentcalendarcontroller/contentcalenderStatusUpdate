@@ -1,0 +1,10 @@
+1. This API receives a **POST request to update the status of a content topic**.
+2. The request contains the **topic id and the new status value**.
+3. The system **searches the database for the topic using the id and active status**.
+4. If the topic is not found, it **throws an invalid id error**.
+5. If the topic exists, the **status field is updated with the new value**.
+6. The system **updates the last updated time with the current timestamp**.
+7. The updated topic record is **saved back to the database**.
+8. A response object is **created to store the result**.
+9. The response includes the **updated topic id and success status**.
+10. Finally, the API **returns the success response to the frontend**.
