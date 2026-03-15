@@ -1,0 +1,10 @@
+1. This API receives a **POST request to generate a prompt for topic suggestions**.
+2. The request contains **platform, persona, and business details**.
+3. The service **extracts these values from the request DTO**.
+4. It **builds a prompt string dynamically using these values**.
+5. The prompt asks to **generate topic suggestions for posting content**.
+6. It specifies the **platform where the content will be posted**.
+7. It also includes the **persona and business context**.
+8. The prompt instructs the system to **generate 20 topic ideas**.
+9. This prompt is **stored in the response object**.
+10. Finally, the API **returns the generated prompt to the frontend**.
