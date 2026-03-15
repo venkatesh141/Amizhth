@@ -1,0 +1,10 @@
+1. This API is used to **update an existing content post in the system**.
+2. The frontend sends the **content ID and the fields that need to be updated**.
+3. The system first **checks if the content exists and is active in the database**.
+4. If the content is not found, the system **throws an invalid ID error**.
+5. If the content exists, the system **updates only the fields that are provided in the request**.
+6. Fields that can be updated include **hook, content text, post date, brand name, content type, topic ID, and status**.
+7. The system **keeps the existing values unchanged for fields that are not sent**.
+8. After updating the values, the system **saves the updated content back into the database**.
+9. The updated record is then **converted into a response format for the frontend**.
+10. Finally, the API returns the **updated content details with a success message**.
