@@ -1,0 +1,21 @@
+Here is **what this API is doing in simple English in 10 points**.
+
+1. This API is used to **get bank details using an IFSC code**.
+
+2. When the frontend calls **`/details/get`**, it sends the **IFSC code as a request parameter**.
+
+3. The controller first **checks whether the IFSC code is provided or not**.
+
+4. If the IFSC code is present, the controller **calls the service method to fetch the IFSC details**.
+
+5. The service method **searches the IFSC code in the database** using the IFSC repository.
+
+6. If the IFSC code exists in the database, the system **retrieves bank details such as bank name, branch name, city, district, state, and address**.
+
+7. It also retrieves additional information like **MICR code, phone number, and whether NEFT, RTGS, LCS, and BGS services are enabled**.
+
+8. All these bank details are **stored in an IFSC response DTO object**.
+
+9. If the IFSC code is not found in the database, the system **returns a response saying "IFSC Code Not Found"**.
+
+10. Finally, the API **returns the bank details along with a success response** to the frontend.
