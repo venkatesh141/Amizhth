@@ -1,0 +1,21 @@
+Here is **what this API is doing in simple English in 10 points**.
+
+1. This API is used to **verify whether a given FIR number matches the iRAD (eDAR) accident ID**.
+
+2. When the frontend calls **`/verify`**, it sends two parameters: **FIR number** and **iRAD ID**.
+
+3. The system first **calls the NIC eDAR API `/cmarfaccidentlist`** using the iRAD accident ID to get accident data.
+
+4. If the system **does not receive accident data**, it throws an error saying the **accident list was not found**.
+
+5. If the accident data is found, the system **calls another API `/darformdec`** to get the **full accident details**.
+
+6. The system then **reads the JSON response returned from the eDAR system**.
+
+7. From that response, it **extracts the FIR number stored in the eDAR system**.
+
+8. The system **compares the FIR number from the request with the FIR number from the eDAR response**.
+
+9. If both FIR numbers match, the **verification status becomes true**, otherwise it remains **false**.
+
+10. Finally, the API **returns the verification result (true or false) along with a success response** to the frontend.
