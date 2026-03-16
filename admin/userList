@@ -1,217 +1,27 @@
-Good Venky 👍
-I will explain this **in very simple English**, step-by-step flow, in paragraphs.
+Here is **what this API is doing in simple English (10 points)**.
 
-This API is used to **get the list of users** based on role, district, RDO, search, and pagination.
+1. This API is used to **get the list of users in the system** based on role, district, and search filters.
 
----
+2. When the frontend calls **`/user/list`**, it sends details like **page number, list size, role filter, active status, and search text**.
 
-First, the controller method `/user/list` calls:
+3. The system first **identifies the currently logged-in user** using the mobile number stored in the JWT token.
 
-```
-adminService.userList(usersListDTO)
-```
+4. Pagination is applied so that **users are returned in pages**, and the list is sorted by **user ID in descending order**.
 
-And returns the result with HTTP 200 (OK).
+5. For **security**, only an **Admin** is allowed to view users with **Admin or TCO roles**. If another role tries to access them, an error is thrown.
 
----
+6. Based on the **role of the logged-in user**, the system decides **which roles they are allowed to see**.
+   For example:
 
-Now let’s understand the service method flow.
+   * Admin can see almost all roles.
+   * TCO can see some department roles.
+   * DC can see district-level users.
+   * RDO can see RDO-level users.
 
-First, it gets the **currently logged-in user** from the database using the mobile number from JWT token.
+7. If the logged-in user is **DC**, the system fetches users **only from that district**, including RDO users linked through the `users_district` table.
 
-This is very important because:
-👉 The logged-in user’s role decides what users they are allowed to see.
+8. If the logged-in user is **RDO**, the system fetches users **only from the same RDO and district**.
 
----
+9. If a **search string is provided**, the system filters users by **name, mobile number, or email**.
 
-Next, pagination is prepared.
-
-* If pageNumber > 0 → subtract 1 (because Spring starts from 0).
-* If listSize not given → default is 10.
-* Sorting is done by `id` in descending order (latest users first).
-
-So this part controls:
-👉 Page number
-👉 Page size
-👉 Sorting
-
----
-
-Next comes a **security check**.
-
-If someone is trying to view ADMIN or TCO users:
-
-* Only ADMIN is allowed to do that.
-* If logged-in user is not ADMIN → throw INVALID_ROLE.
-
-So:
-👉 Normal users cannot see Admin or TCO users.
-
----
-
-Now the system decides which roles can be viewed.
-
-It checks:
-
-If `usersListDTO.getRoleid() == 0`
-It means no specific role filter was given.
-
-So based on logged-in user’s role, it decides what roles they can see.
-
----
-
-If logged-in user is:
-
-**ADMIN**
-→ Can see all roles (Admin, TCO, DC, RDO, DSP, Police Station, etc.)
-
-**TCO**
-→ Can see TCO Maker, Checker, DC, RDO, DSP, Police Station
-
-**DC**
-→ Can see DC Maker, DC Checker, RDO, DSP, Police Station
-Also district is fixed to DC’s district.
-
-**RDO**
-→ Can see RDO Verifier, Approver, Initiator
-Also RDO id and district are fixed.
-
-So basically:
-👉 Higher roles can see lower roles.
-
----
-
-If specific roleId is provided in request:
-
-Then only that role is added to filter list.
-
-Also district and rdo are taken from logged-in user.
-
----
-
-Now comes the important part:
-👉 Specification (Dynamic Query)
-
-This builds a dynamic database query.
-
-First condition:
-
-* active = true/false (based on request)
-* roleid must be in allowed role list
-
----
-
-Now special filtering based on logged-in role.
-
-If logged-in role is DC or DC Maker:
-
-Two types of users must be shown:
-
-1. DC users from users table (same district)
-2. RDO users from users_district table
-
-So it:
-
-* Gets RDO user IDs from users_district table
-* Gets DC user IDs from users table
-* Combines both into a set
-* Adds condition to filter only those users
-
-This ensures:
-👉 DC sees only users inside their district.
-
----
-
-If logged-in role is RDO:
-
-Then it filters:
-
-* rdoid must match logged-in RDO
-* districtid must match logged-in district
-
-So:
-👉 RDO sees only users under them.
-
----
-
-Next comes Search filter.
-
-If searchString is given:
-
-It searches in:
-
-* name
-* mobile number
-* email
-
-Using LIKE condition.
-
-So:
-👉 Partial search is supported.
-
----
-
-After building all conditions,
-it calls:
-
-```
-usersRepository.findAll(spec, paging)
-```
-
-So it fetches filtered users with pagination.
-
----
-
-If data exists:
-
-It converts UsersModel → UsersDTO
-using `constructUsersResponse()` method.
-
-Then sets:
-
-* users list
-* total count
-* total pages
-
----
-
-Finally:
-
-It sets response status = "Success"
-And returns usersListDTO.
-
----
-
-Now let me summarize the full flow in simple steps:
-
-1. Get logged-in user
-2. Prepare pagination
-3. Check security (Admin only for Admin roles)
-4. Decide which roles can be viewed
-5. Build dynamic query using Specification
-6. Apply district/RDO restrictions
-7. Apply search filter
-8. Fetch paginated result
-9. Convert to DTO
-10. Return success response
-
----
-
-In simple words:
-
-👉 This method lists users
-👉 Based on logged-in user’s role
-👉 Applies district and RDO restrictions
-👉 Supports pagination
-👉 Supports search
-👉 Prevents unauthorized access
-
----
-
-If you want, I can next explain:
-
-* Why Specification is used instead of normal query
-* Or draw a simple role hierarchy flow for this system
-* Or explain how this improves security architecture
-
-Tell me which one you want 😊
+10. Finally, the system **retrieves the filtered users from the database**, converts them into response DTOs, includes **total count and total pages**, and returns the result with a **success response**.
