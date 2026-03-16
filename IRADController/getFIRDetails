@@ -1,0 +1,24 @@
+Here is **what this API is doing in simple English (10 points)**.
+
+1. This API is used to **get FIR accident details from the iRAD (NIC eDAR) system using an accident ID**.
+
+2. When the frontend calls **`/get?id=...`**, the system sends the accident ID to the **iRAD external service** to fetch accident data.
+
+3. The system first calls the **`/cmarfaccidentlist` API** of the NIC eDAR system to get basic accident information.
+
+4. If the accident data is found, the system sends that response to another API **`/darformdec`** to get the **complete accident details**.
+
+5. The system then **reads the JSON response** and extracts important information such as **FIR number, accident place, accident date, accident time, and police station name**.
+
+6. It also extracts **victim details** like name, age, gender, injury type, address, and mobile number, and prepares victim objects.
+
+7. The system extracts **vehicle details** such as vehicle registration number and vehicle class involved in the accident.
+
+8. It then **checks whether the FIR already exists in the database**.
+
+   * If it does not exist → a **new FIR record is created**.
+   * If it exists → the **existing FIR details are updated**.
+
+9. After that, the system **saves or updates victim details and vehicle details** related to that FIR in the database.
+
+10. Finally, the API **returns the FIR details, number of victims, number of vehicles, and a success response** back to the frontend.
