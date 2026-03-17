@@ -1,0 +1,10 @@
+1. This API is used to **get all frequency options available in the system**.
+2. The frontend calls this API **without sending any input data**.
+3. The system fetches data from the **Frequency table in the database**.
+4. It retrieves all records like **Daily, Weekly, Monthly, etc.**
+5. Each record contains details like **name, description, and image**.
+6. This data is used to **show frequency options to the user**.
+7. It helps users **choose how often content should be generated or posted**.
+8. The system directly returns **all available frequency records**.
+9. No filtering or validation is done in this API.
+10. Finally, the API sends the **list of frequency options to the frontend**.
