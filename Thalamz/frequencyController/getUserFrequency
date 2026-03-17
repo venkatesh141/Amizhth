@@ -1,0 +1,10 @@
+1. This API is used to **get the content frequency selected by a user**.
+2. The frontend sends the **user ID in the URL path**.
+3. The system searches the **Users table for that user ID**.
+4. If the user is not found, it will **throw an error**.
+5. If the user exists, the system **retrieves the frequency ID assigned to that user**.
+6. This frequency ID represents **how often the user wants content (daily, weekly, etc.)**.
+7. The system prepares a **response object with user ID and frequency ID**.
+8. It adds a **success message to the response**.
+9. This data helps the frontend **display the user’s selected frequency**.
+10. Finally, the API returns the **user frequency details to the frontend**.
