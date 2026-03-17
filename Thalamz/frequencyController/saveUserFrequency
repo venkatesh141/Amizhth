@@ -1,0 +1,10 @@
+1. This API is used to **save or update a user’s content frequency preference**.
+2. The frontend sends the **user ID and selected frequency ID**.
+3. The system first **finds the user in the database using the user ID**.
+4. If the user is not found, it will **throw an error**.
+5. Once the user is found, the system **updates the frequency ID for that user**.
+6. This means the user has chosen **how often they want content (daily, weekly, etc.)**.
+7. The updated user data is then **saved back into the database**.
+8. A response object is created with the **updated user details**.
+9. The system adds a **success message confirming the update**.
+10. Finally, the API returns the **updated user frequency information to the frontend**.
