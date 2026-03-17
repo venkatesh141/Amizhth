@@ -1,0 +1,155 @@
+Here is the **simple 10-line explanation for each model (no code, easy English)** 👇
+
+---
+
+# ICMappingMaster
+
+1. This model is used to **store content configuration for AI generation**.
+2. It defines different **content types like Insight, Opinion, etc.**
+3. For each type, it stores the **minimum and maximum word range**.
+4. It also stores the **estimated token range used by AI**.
+5. This helps control **how long the generated content should be**.
+6. The system uses this while **building prompts for AI (Gemini)**.
+7. It ensures content is generated within **defined limits**.
+8. It also stores **IC cost (credit usage)** for that content type.
+9. This is useful for **tracking usage or billing logic**.
+10. Overall, it acts like a **configuration table for AI content rules**.
+
+---
+
+# FrequencyModel
+
+1. This model is used to **store frequency options in the system**.
+2. Examples could be **Daily, Weekly, Monthly, etc.**
+3. It contains the **name of the frequency**.
+4. It also stores a **description for better understanding**.
+5. An image field is included for **UI display purposes**.
+6. This model is used when users **select how often content is generated**.
+7. It helps in **content scheduling features**.
+8. The frontend can display these options as **choices for the user**.
+9. It keeps frequency data **centralized and configurable**.
+10. Overall, it manages **content posting frequency settings**.
+
+---
+
+# DropDownJSONB
+
+1. This model is used to **store a list of dropdown values**.
+2. It contains a **list of strings** representing options.
+3. These values are stored in **JSON format in the database**.
+4. It is used inside other models like **DropDownConfigModel**.
+5. It helps in creating **dynamic dropdowns in the UI**.
+6. Instead of hardcoding values, they are **stored in DB**.
+7. This makes dropdowns **flexible and easily changeable**.
+8. The system can return these values to the frontend.
+9. It supports **clean and structured data storage**.
+10. Overall, it helps manage **dropdown options dynamically**.
+
+---
+
+# DropDownConfigModel
+
+1. This model is used to **store dropdown configurations**.
+2. It contains a **key that identifies the dropdown type**.
+3. It stores dropdown values in **JSON format using DropDownJSONB**.
+4. It includes **priority to control order of display**.
+5. It has **start date and end date for validity**.
+6. Only active dropdowns within date range are used.
+7. It also stores **who created it and when**.
+8. This helps in **dynamic UI dropdown management**.
+9. Admin can change dropdown values **without code changes**.
+10. Overall, it controls **dynamic dropdown data in the system**.
+
+---
+
+# DefaultConfig
+
+1. This model is used to **store default system configuration values**.
+2. It stores data in **key-value format**.
+3. Each key represents a **specific system setting**.
+4. The value defines the **actual configuration value**.
+5. It includes an **active flag to enable/disable config**.
+6. It stores **created and modified user details**.
+7. It also tracks **creation and update timestamps**.
+8. This model helps manage **global settings of the application**.
+9. These values can be used in **different parts of the system**.
+10. Overall, it acts like a **central configuration storage for the system**.
+
+
+
+Here is the **simple 10-line explanation for each model (easy English, no code)** 👇
+
+---
+
+# Country
+
+1. This model is used to **store country details in the system**.
+2. It contains the **country name**.
+3. Each country has a unique **ID**.
+4. It includes an **active flag** to enable or disable the country.
+5. It stores when the country was **created**.
+6. It also tracks the **last updated time**.
+7. This data is used in **location-related features**.
+8. It helps in **dropdowns or address selection**.
+9. Only active countries are shown to users.
+10. Overall, it manages **country master data**.
+
+---
+
+# ContentTopic
+
+1. This model is used to **store topics for content generation**.
+2. Each topic is linked to a **prompt (AI instruction)**.
+3. It contains the **topic name and description**.
+4. It also stores the **platform (like LinkedIn, etc.)**.
+5. The status field shows the **current state of the topic**.
+6. Status can be like **Draft, Approved, Scheduled, Published, etc.**
+7. It includes an **active flag** to control visibility.
+8. It stores when the topic was **created and last updated**.
+9. These topics are used to **generate AI content posts**.
+10. Overall, it manages **content planning topics in the system**.
+
+---
+
+# ContentPostFile
+
+1. This model is used to **store files related to content posts**.
+2. Each file is linked to a **post using post ID**.
+3. It stores the **file URL (like image or video link)**.
+4. It also keeps the **file name**.
+5. It includes an **active flag** to manage file usage.
+6. It tracks when the file was **created and updated**.
+7. This is used for **media attachments in posts**.
+8. Files can be **images, videos, or documents**.
+9. Helps in managing **multiple files per post**.
+10. Overall, it handles **media storage for content posts**.
+
+---
+
+# ContentPost
+
+1. This model is used to **store actual content posts created by users**.
+2. It contains the **user ID who created the post**.
+3. It stores the **main content text of the post**.
+4. It includes details like **post type and platform**.
+5. It also tracks the **status of the post** (draft, published, etc.).
+6. The post has a **scheduled date and time**.
+7. It includes a **name/title for the post**.
+8. It has an **active flag to manage visibility**.
+9. It stores **creation and last update timestamps**.
+10. Overall, it manages **user-created social media posts**.
+
+---
+
+# ContentManagerAndUser
+
+1. This model is used to **map a content manager to a user**.
+2. It stores the **user ID and manager ID**.
+3. This defines **who manages whose content**.
+4. It helps in **role-based content management**.
+5. Managers can **review or control user content**.
+6. It includes an **active flag for the relationship**.
+7. It tracks when the mapping was **created**.
+8. This is useful in **team or organization setup**.
+9. Helps assign **responsibility for content approval**.
+10. Overall, it manages **user-manager relationships in content workflow**.
