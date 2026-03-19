@@ -1,0 +1,10 @@
+1. This API is used to get error log records.
+2. It takes search text, page number, and page size from the user.
+3. The input comes inside LogRequestDTO.
+4. The controller sends these values to the service method.
+5. The service checks if the search text is empty.
+6. If empty, it converts it to null (no filtering).
+7. It creates pagination (which page and how many records).
+8. It sorts the data by occurredTime (latest errors first).
+9. It fetches error logs from the database using repository.
+10. Finally, it returns the paginated error logs as response.
