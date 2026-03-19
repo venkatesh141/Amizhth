@@ -1,0 +1,10 @@
+1. This API is used to get legal heir log records.
+2. It takes search text, page number, and page size from the user.
+3. The input comes inside LogRequestDTO.
+4. The controller passes these values to the service method.
+5. The service checks if the search text is empty.
+6. If empty, it converts it to null (no filtering).
+7. It creates pagination (which page and how many records).
+8. It sorts the data by createdtime (latest records first).
+9. It fetches legal heir logs from the database using repository.
+10. Finally, it returns the paginated legal heir logs as response.
