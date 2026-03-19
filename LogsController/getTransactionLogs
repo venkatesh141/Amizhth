@@ -1,0 +1,10 @@
+1. This API is used to get **Payment transaction records**.
+2. It takes search text, page number, and page size from the user.
+3. The input comes inside LogRequestDTO.
+4. The controller calls the service with type **"PM"** (Payment).
+5. The service creates pagination and sorts by createdTime (latest first).
+6. It checks the type → since it is "PM", it fetches **payment transactions** from database.
+7. The database returns raw data as a list of objects (not proper format).
+8. The service converts each record into a proper TransactionDTO (clean structured data).
+9. It collects all converted records into a list.
+10. Finally, it returns the transaction list with pagination details and success message.
