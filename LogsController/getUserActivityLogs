@@ -1,0 +1,10 @@
+1. This API is used to get user activity logs (like login details).
+2. It takes search text, page number, and page size from the user.
+3. The input comes inside LogRequestDTO.
+4. The controller sends these values to the service method.
+5. The service checks if the search text is empty.
+6. If empty, it converts it to null (no filtering).
+7. It creates pagination (which page and how many records).
+8. It sorts the data by loginTime (latest activity first).
+9. It fetches user activity logs from the database using repository.
+10. It wraps the data with extra details (total pages, count, status) and returns the response.
