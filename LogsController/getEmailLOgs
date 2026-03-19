@@ -1,0 +1,10 @@
+1. This API is used to get email log records.
+2. It accepts search text, page number, and page size from the user.
+3. The request data comes inside LogRequestDTO.
+4. The controller sends these values to the service method.
+5. The service checks if the search text is empty.
+6. If empty, it treats it as no search (null).
+7. It prepares pagination (which page and how many records).
+8. It also sets sorting (latest records first using id).
+9. It fetches data from the database using repository.
+10. Finally, it returns the paginated email logs as response.
