@@ -1,0 +1,10 @@
+1. This API receives a **GET request to call any LinkedIn API dynamically**.
+2. The request must include an **Authorization header (Bearer token)**.
+3. It also receives a **LinkedIn API URL as a request parameter**.
+4. The controller **extracts the access token from the Authorization header**.
+5. The token is passed to the **service along with the API URL**.
+6. The service uses **WebClient to call the given LinkedIn API URL**.
+7. It adds the **Authorization header (Bearer token) to authenticate the request**.
+8. It also sets the **LinkedIn API version header**.
+9. The LinkedIn API **returns the requested data as a response**.
+10. The system **captures and returns that response to the frontend**.
