@@ -1,0 +1,15 @@
+
+
+1. This API is used to **save outcomes for a user**.
+2. It takes **userId and a list of outcomeIds** from the request.
+3. It loops through each **outcomeId one by one**.
+4. For each outcome, it checks if the **mapping already exists** in the database.
+5. If the mapping already exists → it **does nothing (skip)**.
+6. If not → it **creates a new record** (userId + outcomeId).
+7. Then it saves this new mapping in the database.
+8. After processing all outcomes, it prepares a response.
+9. It includes **userId and success message**.
+10. Finally, it returns **“Outcomes saved successfully”**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Avoid duplicates + save user-outcome mapping**.
