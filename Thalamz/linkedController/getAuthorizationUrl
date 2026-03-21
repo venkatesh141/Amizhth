@@ -1,0 +1,10 @@
+1. This API receives a **GET request to generate a LinkedIn authorization URL**.
+2. It takes a **type parameter (like INDIVIDUAL or BUSINESS)** from the request.
+3. The system **identifies the logged-in user using the JWT token**.
+4. It checks if the user **already has a LinkedIn token stored in the database**.
+5. Based on this, it **decides which permissions (scope) to request from LinkedIn**.
+6. If a token already exists, it **requests full access scope**.
+7. If not, it selects **individual or business scope based on the type**.
+8. It generates a **unique state value for security (to prevent attacks)**.
+9. The system **builds a LinkedIn OAuth URL with client id, redirect URL, scope, and state**.
+10. Finally, the API **returns this authorization URL to the frontend for LinkedIn login/connection**.
