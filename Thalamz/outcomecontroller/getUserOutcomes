@@ -1,0 +1,15 @@
+Here is the **simple flow (10 lines, easy English):**
+
+1. This API is used to **get outcomes for a specific user**.
+2. It takes **userId from the URL**.
+3. It goes to the database and finds all **records for that userId**.
+4. These records contain **userId + outcomeId mappings**.
+5. It extracts only the **outcomeIds** from those records.
+6. It converts them into a **list of outcomeIds**.
+7. Then it creates a **response object (UsersDTO)**.
+8. It sets **userId and the list of outcomeIds** in the response.
+9. It adds a **success message**.
+10. Finally, it returns the **user’s outcome list**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Get mappings → extract outcomeIds → return list**.
