@@ -1,0 +1,27 @@
+1. This API receives a **POST request to post content on LinkedIn**.
+2. The request contains **post type (text/image/video), content text, and media files**.
+3. The system **identifies the logged-in user using JWT token**.
+4. It **fetches the user’s LinkedIn access token from the database**.
+5. It ensures the **token is valid before posting**.
+6. The system checks the **type of post requested**.
+
+**For TEXT_ONLY:**
+7. It directly **creates a LinkedIn post with only text content**.
+
+**For TEXT_WITH_IMAGES:**
+8. It first **uploads each image to LinkedIn servers**.
+9. It collects **image asset IDs (URNs)**.
+10. Then it **creates a post with text + multiple images**.
+
+**For VIDEO:**
+11. It first **uploads the video to LinkedIn**.
+12. Gets the **video asset ID (URN)**.
+13. Then it **creates a post with text + video**.
+
+14. The system builds the **LinkedIn API request format (author, content, visibility)**.
+15. It sends the request to **LinkedIn UGC Posts API**.
+16. LinkedIn processes and **publishes the post on the user’s profile/page**.
+17. If any error occurs, it **logs the error and throws an exception**.
+18. If successful, LinkedIn returns a **post ID**.
+19. The system captures this **response from LinkedIn**.
+20. Finally, the API **returns success after publishing the content**.
