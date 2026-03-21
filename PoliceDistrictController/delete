@@ -1,0 +1,15 @@
+Here is the **simple flow (10 lines, easy English):**
+
+1. This API is used to **delete a police district (RDO)**.
+2. It takes the **ID from the request**.
+3. It checks if the district exists and is **active**.
+4. If not found, it throws an **invalid ID error**.
+5. If found, it does NOT delete permanently.
+6. It sets **active = false** (soft delete).
+7. This means the data is **hidden, not removed from DB**.
+8. Then it saves the updated record.
+9. No other operations like email or file handling are done.
+10. Finally, it returns a **success response**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Validate → soft delete → save → return success**.
