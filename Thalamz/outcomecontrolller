@@ -1,0 +1,15 @@
+Here is the **simple flow (10 lines, easy English):**
+
+1. This API is used to **get all outcomes**.
+2. It does not take any input (no ID, no filter).
+3. When called, it goes to the **service layer**.
+4. The service calls the database to **fetch all outcome records**.
+5. It gets the data as a **list of database models**.
+6. Then it converts each model into a **DTO (response format)**.
+7. This conversion is done using a **mapping function**.
+8. All converted DTOs are collected into a **list**.
+9. That list is returned back to the controller.
+10. Finally, the API returns the **full list of outcomes to the user**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Get all records → convert → return list**.
