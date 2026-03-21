@@ -1,0 +1,15 @@
+Here is the **simple flow (10 lines, easy English):**
+
+1. This API is used to **create or update an RDO**.
+2. It takes input like **name and districtId**.
+3. It checks if an RDO with the **same name already exists**.
+4. If duplicate name is found, it throws an **error (name already exists)**.
+5. Then it checks if this is **update or new record** (based on ID).
+6. If ID exists → it fetches old data and **updates it**.
+7. If ID is not given → it **creates a new RDO record**.
+8. It sets values like **name, districtId, and active = true**.
+9. It also sets **created time or modified time**.
+10. Finally, it **saves the data and returns success response**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Check duplicate → create/update → save RDO**.
