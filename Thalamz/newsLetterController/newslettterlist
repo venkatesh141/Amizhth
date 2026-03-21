@@ -1,0 +1,14 @@
+
+1. This API is used to **get a list of newsletters** (not just one).
+2. It takes input like **userId, page number, page size, status, and search text**.
+3. It first sets **pagination** (how many records per page + sorting by date & time).
+4. Then it checks if the **user exists**.
+5. If user is not found, it throws an **invalid user error**.
+6. It filters newsletters to only show **active ones**.
+7. It also filters by **userId (only that user’s newsletters)**.
+8. If status is given, it filters by **status (like scheduled, etc.)**.
+9. If search text is given, it searches in **title and description**.
+10. Finally, it returns **list of newsletters + total count + total pages + success message**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Filter + Search + Pagination + Return newsletter list**.
