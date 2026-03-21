@@ -1,0 +1,10 @@
+1. This API receives a **POST request to refresh a LinkedIn access token**.
+2. The request contains a **refreshToken in the request body**.
+3. The controller sends this **refresh token to the service layer**.
+4. The service prepares a **request to LinkedIn API with required details**.
+5. It includes **grant_type as refresh_token, refreshToken, client id, and client secret**.
+6. The system uses **WebClient to call LinkedIn’s token API**.
+7. LinkedIn verifies the refresh token and **generates a new access token**.
+8. The response contains the **new access token and expiry details**.
+9. This new token is **returned back from the service to the controller**.
+10. Finally, the API **returns the refreshed access token to the frontend**.
