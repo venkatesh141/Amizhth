@@ -1,0 +1,15 @@
+
+
+1. This API is used to **get a police district (RDO) by ID**.
+2. It takes the **ID from the request**.
+3. It searches the database for that **active police district**.
+4. If not found, it throws an **invalid ID error**.
+5. If found, it takes the district data.
+6. It converts the data into a **DTO (response format)**.
+7. It sets basic details like **id, name, districtId**.
+8. Then it checks if **districtId is present**.
+9. If yes, it fetches the **district name** from another table.
+10. Finally, it returns the **full police district details**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Find by ID → map data → include district name → return**.
