@@ -1,0 +1,15 @@
+Here is the **simple flow (10 lines, easy English):**
+
+1. This API is used to **get an RDO by ID**.
+2. It takes the **ID from the request**.
+3. It searches the database for that **active RDO**.
+4. If not found, it throws an **invalid ID error**.
+5. If found, it gets the RDO data.
+6. It converts the data into a **DTO (response format)**.
+7. It sets values like **id, name, districtId**.
+8. (If mapping exists) it may also include **related district details**.
+9. Then it prepares the response.
+10. Finally, it returns the **RDO details**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Find by ID → convert → return RDO data**.
