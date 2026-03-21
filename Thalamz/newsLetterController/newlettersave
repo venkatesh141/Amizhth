@@ -1,0 +1,15 @@
+Here is the **simple flow (10 lines, easy English):**
+
+1. This API is used to **create or update a newsletter**.
+2. First, it takes data like **title, description, date, time, userId, and file** from the request.
+3. It checks if the **user exists** in the system.
+4. If the user is not found, it throws an **error (invalid user)**.
+5. Then it checks if a newsletter is already scheduled on the **same date**.
+6. If another newsletter exists for that date, it throws a **duplicate date error**.
+7. Next, it checks if this is a **new newsletter or updating an existing one**.
+8. If new → it creates a new record; if existing → it updates the old one.
+9. If a file is provided, it **uploads the file and replaces the old file if needed**.
+10. Finally, it **saves the newsletter in database and returns success with the newsletter ID**.
+
+👉 **Developer takeaway (very simple):**
+This API ensures **valid user + no duplicate schedule + optional file upload + save/update newsletter**.
