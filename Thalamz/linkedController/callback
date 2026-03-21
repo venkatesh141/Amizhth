@@ -1,0 +1,10 @@
+1. This API receives a **GET request from LinkedIn after user authorization (callback)**.
+2. LinkedIn sends a **code (authorization code)** to your backend.
+3. The service uses this code to **request an access token from LinkedIn API**.
+4. It sends required details like **client id, client secret, redirect URL, and code**.
+5. LinkedIn responds with an **access token and expiry time**.
+6. The system **identifies the logged-in user using JWT token**.
+7. It checks if the user **already has a LinkedIn token stored**.
+8. If yes, it **updates the existing token and expiry time**.
+9. If not, it **creates a new token record and also fetches the user’s LinkedIn profile (person URN)**.
+10. Finally, the API **saves the token in the database and returns the token response to the frontend**.
