@@ -1,0 +1,15 @@
+Here is the **simple flow (10 lines, easy English):**
+
+1. This API is used to **get (fetch) a newsletter by ID**.
+2. It takes the **newsletter ID** from the request.
+3. It searches the database for that newsletter using the ID.
+4. It only checks for newsletters that are **active**.
+5. If no newsletter is found, it throws an **invalid ID error**.
+6. If found, it takes the newsletter data from the database.
+7. Then it **converts the database model into a DTO (response format)**.
+8. It prepares a **success response message**.
+9. It attaches the success message to the DTO.
+10. Finally, it **returns the newsletter details to the user**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Find newsletter by ID → if exists return data → else throw error**.
