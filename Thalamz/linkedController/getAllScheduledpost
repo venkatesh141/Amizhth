@@ -1,0 +1,11 @@
+1. This API receives a **GET request to fetch all scheduled posts**.
+2. The system **queries the database for posts with status = "SCHEDULED" and active = true**.
+3. It retrieves a **list of scheduled ContentPost records**.
+4. For each post, it **creates a SchedulePostDTO object**.
+5. It sets **post details like id, text, post type**.
+6. The system **formats the post date and time into readable format**.
+7. It then **fetches media files (images/videos) linked to each post**.
+8. For each file, it **generates AWS pre-signed URLs for secure access**.
+9. These media URLs are **added to the response for each post**.
+10. All post details are **collected into a list of DTOs**.
+11. Finally, the API **returns the list of scheduled posts to the frontend**.
