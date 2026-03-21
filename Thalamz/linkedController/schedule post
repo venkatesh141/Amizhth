@@ -1,0 +1,12 @@
+1. This API receives a **POST request to schedule a LinkedIn post for future time**.
+2. The request contains **post type, text, date, time, and media (image/video)**.
+3. The system **identifies the logged-in user using the JWT token**.
+4. It **converts the given date and time into proper format**.
+5. A new **ContentPost record is created with status = “SCHEDULED”**.
+6. This record stores **post details like text, platform, user id, date, and time**.
+7. If a **video is provided**, it is **uploaded to AWS and saved in the database**.
+8. If **images are provided**, each image is **uploaded to AWS and linked to the post**.
+9. The system then **calls Quartz Scheduler to schedule the job using postId and time**.
+10. Quartz creates a **job and trigger that will run at the scheduled time**.
+11. At that time, the job will **automatically execute and post content to LinkedIn**.
+12. Finally, the API **returns success message “Post Scheduled Successfully”**.
