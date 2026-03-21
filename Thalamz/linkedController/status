@@ -1,0 +1,10 @@
+1. This API receives a **GET request to check LinkedIn connection status**.
+2. The system **identifies the logged-in user using the JWT token**.
+3. It checks the database to see if the **user has a LinkedIn token saved**.
+4. If no token is found, the **LinkedIn status remains false (not connected)**.
+5. If a token exists, it **retrieves the token expiry time**.
+6. The system compares the **current time with the token expiry time**.
+7. If the token is still valid (not expired), **LinkedIn status is set to true**.
+8. If the token is expired, the **status remains false**.
+9. A response object is created with the **connection status**.
+10. Finally, the API **returns whether the user is connected to LinkedIn or not**.
