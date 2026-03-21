@@ -1,0 +1,15 @@
+Here is the **simple flow (10 lines, easy English):**
+
+1. This API is used to **get a list of RDOs**.
+2. It takes input like **page number, page size, search text, and districtId**.
+3. If pagination is given → it returns data **page by page (sorted by id descending)**.
+4. If not given → it returns **default 25 records**.
+5. It checks if **search text is provided**.
+6. If search is given → it filters by **name (contains search text)**.
+7. If districtId is also given → it filters by **district + search**.
+8. If no search → it still filters by **districtId (if provided)**.
+9. Then it converts database data into **DTO list** and sets **count & total pages**.
+10. Finally, it returns **filtered list + pagination info + success message**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Pagination + search + district filter → return RDO list**.
