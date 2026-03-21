@@ -1,0 +1,15 @@
+Here is the **simple flow (10 lines, easy English):**
+
+1. This API is used to **approve or reject a newsletter**.
+2. It takes input like **newsletter ID, status, and remarks**.
+3. It checks if the **newsletter exists**.
+4. If not found, it throws an **invalid ID error**.
+5. Then it **updates the status and remarks** (approve = 2, reject = 3).
+6. It saves the updated newsletter in the database.
+7. It fetches the **user who created the newsletter**.
+8. If the newsletter has a file, it **gets the file URL**.
+9. If approved → sends **email to user + admin**; if rejected → sends **email to user only**.
+10. Finally, it returns **success message with “approved” or “rejected” status**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Update status → send email → return success**.
