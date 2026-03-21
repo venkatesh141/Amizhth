@@ -1,0 +1,15 @@
+Here is the **simple flow (10 lines, easy English):**
+
+1. This API is used to **get all subscription plans**.
+2. It does not take any input.
+3. It calls the service to **fetch all plans from the database**.
+4. The database returns a **list of plan records**.
+5. Each plan is converted into a **DTO (response format)** using ModelMapper.
+6. Some plans have features stored as a **single string (separated by |)**.
+7. That string is **split into a list of features**.
+8. The features list is set inside the DTO.
+9. All DTOs are collected into a **list**.
+10. Finally, the API returns the **list of all subscription plans**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Fetch all plans → convert → split features → return list**.
