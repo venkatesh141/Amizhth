@@ -1,0 +1,14 @@
+
+1. This API is used to **delete an RDO**.
+2. It takes the **ID from the request**.
+3. It checks if the RDO exists and is **active**.
+4. If not found, it throws an **invalid ID error**.
+5. If found, it does NOT delete permanently.
+6. It sets **active = false** (soft delete).
+7. This means the data is **hidden but still stored in DB**.
+8. Then it saves the updated record.
+9. No extra actions like email or file handling.
+10. Finally, it returns a **success response**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Validate → soft delete → save → return success**.
