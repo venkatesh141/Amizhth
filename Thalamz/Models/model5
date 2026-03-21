@@ -1,0 +1,57 @@
+### **ConfigNotificationTemplateModel**
+
+1. This model represents the **notification template table**.
+2. It stores **templates for emails or notifications**.
+3. `mode` defines **how the notification is sent (email, SMS, etc.)**.
+4. `type` defines **what kind of notification it is**.
+5. `subject` and `body` store the **content of the notification**.
+6. `priority` decides **which template should be used first**.
+7. `startdate` and `enddate` define **when the template is valid**.
+8. `active` shows whether the **template is currently usable**.
+9. `createdtime` stores **when the template was created**.
+10. In simple terms, it **stores reusable notification formats**.
+
+---
+
+### **BusinessDetailsModel**
+
+1. This model represents the **`business_details` table**.
+2. It stores **business information of a user**.
+3. `userid` links the **business details to a user**.
+4. It stores **business name, industry, size, stage, and website**.
+5. It also stores **business goals, target, and geography**.
+6. These details are collected in **multiple steps during onboarding**.
+7. `active` shows whether the **record is active**.
+8. This data is used to **generate personalized content**.
+9. It helps in **AI content and strategy generation**.
+10. In short, it **stores complete business profile of a user**.
+
+---
+
+### **AuthorityScoreDaywise**
+
+1. This model stores **daily authority score of a user**.
+2. `userId` identifies **which user this score belongs to**.
+3. `AuthorityScore` stores the **score value for that day**.
+4. `date` stores **when the score was recorded**.
+5. Each record represents **one day’s score**.
+6. It helps track **growth of user influence over time**.
+7. Data can be used for **charts or analytics**.
+8. `id` is the **unique identifier**.
+9. This table stores **historical score data**.
+10. In simple terms, it **tracks daily user performance**.
+
+---
+
+### **AuthorityProfile**
+
+1. This model stores the **overall authority profile of a user**.
+2. `userId` identifies **which user this belongs to**.
+3. `currentAuthorityScore` stores the **current total score**.
+4. `contentConsistency` shows **how regularly the user posts content**.
+5. `engagementVelocity` shows **how fast the user gains engagement**.
+6. `networkInfluence` shows **how strong the user’s network is**.
+7. These values help measure **user influence level**.
+8. It is used for **analytics and scoring systems**.
+9. `id` is the **primary key**.
+10. In simple terms, it **stores overall influence metrics of a user**.
