@@ -1,0 +1,21 @@
+Here is the **simple flow (very easy English, step-by-step):**
+
+1. This method is used to **get user milestone progress** (summary + achievements).
+2. It takes **profileType (PERSONAL or BUSINESS)** and validates it.
+3. It gets the **logged-in user using mobile number**.
+4. Then it fetches the user’s **plan (Influence Capacity - IC)**.
+5. It calculates **used IC** (posts × 5) and **percentage progress**.
+6. It checks journey levels to find **current level and next level**.
+7. It checks milestone conditions:
+
+   * Posted at least once → **first activation**
+   * Posted consistently for 3 weeks → **3-week streak**
+   * Created 10+ posts → **10 insights**
+   * Reached higher level → **thought leader level**
+   * Active in last 90 days → **recent activity**
+8. If all conditions are true → **journey is complete**.
+9. It prepares two parts: **summary (IC, %, levels)** and **milestones (true/false flags)**.
+10. Finally, it returns **both summary + milestone status in response**.
+
+👉 **Developer takeaway (very simple):**
+This = **Calculate progress + check conditions + return user journey status**.
