@@ -1,0 +1,19 @@
+Here is the **simple flow (very easy English, step-by-step):**
+
+1. This API is used to **get user journey levels (like progress cards)**.
+2. It takes **profileType (PERSONAL or BUSINESS)** as input.
+3. It first checks if profileType is valid → otherwise throws error.
+4. It gets the **logged-in user** using mobile number from token.
+5. Then it finds the user’s **plan based on profileType**.
+6. From the plan, it gets **total Influence Capacity (IC)**.
+7. It counts how many posts the user created → each post uses **5 IC**.
+8. It calculates **used IC and remaining IC**.
+9. It gets all journey levels and checks user progress:
+
+   * If IC passed → **complete**
+   * If in range → **current**
+   * If not reached → **locked**
+10. Finally, it returns **list of journey cards with status (complete/current/locked)**.
+
+👉 **Developer takeaway (very simple):**
+This API = **Validate → get user plan → calculate IC → decide progress → return journey levels**.
